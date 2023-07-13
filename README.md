@@ -2,7 +2,7 @@
 
 [![License][license-image]][license-url] [![NPM version][npm-image]][npm-url] [![NPM downloads][npm-downloads-image]][npm-downloads-url] [![Twitter Follow][twitter-image-url]][twitter-url]
 
-<p style="color: lime;">? Feel free to contribute to the project ? </p>
+<p style="color: lime;">❤ Feel free to contribute to the project ❤ </p>
 
 Simple Dependency Injection is a lightweight and flexible library that simplifies the management of dependencies in your JavaScript / Typescript applications. It allows you to create independent beans, services, and controllers by injecting dependencies at runtime. With its intuitive API and seamless integration, it empowers developers to write modular and maintainable code.
 
