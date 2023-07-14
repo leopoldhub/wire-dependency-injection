@@ -97,9 +97,9 @@ You can simply do it this way:
 
 ```javascript
 if (COUNTRY === 'France') {
-    injector.registerBean('clockService', FranceClockService);
+  injector.registerBean('clockService', FranceClockService);
 } else {
-    injector.registerBean('clockService', EnglandClockService);
+  injector.registerBean('clockService', EnglandClockService);
 }
 
 injector.wire('clockService').getCurrentTime();
