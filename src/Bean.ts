@@ -73,7 +73,7 @@ export default class Bean<T extends ClassType = ClassType> {
     if (this.getInstance() === undefined) {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      this.setInstance(new (this.getClazz())());
+      this.setInstance(new (this.getClazz())(this));
     }
   }
 }

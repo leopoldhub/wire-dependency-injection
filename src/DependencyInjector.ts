@@ -185,8 +185,12 @@ export default class DependencyInjector {
    *
    * Pending AutoWires will be automatically resolved.
    * @example
-   * // Please note that constructors will not be given arguments when auto instancing.
-   * class MyService { ... }
+   * // Please note that the only argument passed to the class constructor when auto-instancing is the bean itself.
+   * class MyService {
+   *     public constructor(bean) {
+   *         console.log("Im "+bean.getId());
+   *     }
+   * }
    * injector.registerBean('myService', MyService);
    * @param id - The ID of the bean to register.
    * @param clazz - The class of the bean to register.
