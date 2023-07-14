@@ -1,16 +1,16 @@
-import { BeanType, ContainerId } from './types.js';
+import { BeanType, ContainerIdType } from './types.js';
 import Container from './Container.js';
 import DependencyInjector from './DependencyInjector.js';
 
 export const DEFAULT_BEAN_TYPE: BeanType = 'bean';
 
-export const DEFAULT_CONTAINER_ID: ContainerId = 'default';
+export const DEFAULT_CONTAINER_ID: ContainerIdType = 'default';
 
 export const defaultContainer = new Container(DEFAULT_CONTAINER_ID);
 
-const dependencyInjector = new DependencyInjector();
+const injector = new DependencyInjector();
 
-export default dependencyInjector;
+export default injector;
 
 export * from './errors/AbstractDependencyInjectionError.js';
 export * from './errors/ContainerAlreadyRegisteredError.js';
