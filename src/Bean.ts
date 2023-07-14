@@ -5,26 +5,36 @@ import { DEFAULT_BEAN_TYPE } from './index.js';
  * Beans contains all information needed to manage dependencies
  *
  * @example
- * class MyService { ... }
- * const myServiceBean = new Bean('myService', MyService);
+ * class MyService {
+ *     public constructor(bean) {
+ *         // ...
+ *     }
+ *     // ...
+ * }
+ * const myServiceBean = new Bean(MyService);
+ * // You can also give it a custom ID
+ * const myServiceBean = new Bean(MyService);
  * // You can instance the bean yourself if you need to
- * myServiceBean.setInstance(new MyService());
+ * myServiceBean.setInstance(new MyService(myServiceBean));
  * injector.registerCookedBean(myServiceBean);
  */
 export default class Bean<T extends ClassType = ClassType> {
   protected instance!: InstanceType<T>;
+  protected readonly id: string;
 
   /**
    * Constructs a new instance of the Bean class.
-   * @param id - The ID of the bean.
    * @param clazz - The class of the bean.
+   * @param id - The ID of the bean. Will take the name of the provided class if not provided.
    * @param type - The type of the bean.
    */
   public constructor(
-    protected readonly id: string,
     protected readonly clazz: T,
+    id?: string,
     protected readonly type: BeanType = DEFAULT_BEAN_TYPE
-  ) {}
+  ) {
+    this.id = id ? id : clazz.name;
+  }
 
   /**
    * Gets the ID of the bean.

@@ -15,21 +15,26 @@ import ContainerNotFoundError from './errors/ContainerNotFoundError.js';
 import Bean from './Bean.js';
 import DependencyNotFoundError from './errors/DependencyNotFoundError.js';
 import AutoWireQueueElement from './AutoWiredQueueElement.js';
+import { parseId } from './utils.js';
 
 /**
  * The main instance of the library.
  *
  * @example
- * // To register a bean, use the `registerBean` function by providing at least the id and the Class
+ * // To register a bean, use the `registerBean` function by providing a Class
  * class MyService { ... }
- * injector.registerBean('myService', MyService);
+ * injector.registerBean(MyService); // ID will be the name of the class
+ * // You can also give a different ID to your bean
+ * injector.registerBean(MyService, 'MySuperService');
  *
  * // To connect to a bean when this one is registered use the `wire` function.
- * const myService = injector.wire('myService');
+ * const myService = injector.wire(MyService);
+ * // You can also access it by its name
+ * const myService = injector.wire('MySuperService');
  *
  * // To AutoWire (connect to a bean that may not have been registered yet) use the `autoWire` function.
  * class MyController {
- *     private myService = injector.autoWire('myService', (b) => this.myService = b)
+ *     private myService = injector.autoWire(MyService, (b) => this.myService = b)
  * }
  * // Please note that the autoWire function does not wait for the bean to be registered
  * // the value will be `undefined` until replaced by the correct instance.
@@ -60,7 +65,7 @@ export default class DependencyInjector {
           this.wire(
             queueElement.getBeanId(),
             queueElement.getContainerId()
-          ) as undefined
+          ) as unknown as undefined
         );
       } catch (e) {
         remainingQueue.push(queueElement);
@@ -130,11 +135,15 @@ export default class DependencyInjector {
    * @param containerId - The ID of the container to check.
    * @returns `true` if the bean exists, `false` otherwise.
    */
-  public haveBean(id: string, containerId: string = DEFAULT_CONTAINER_ID) {
+  public haveBean(
+    id: string | ClassType,
+    containerId: string = DEFAULT_CONTAINER_ID
+  ) {
+    const bid = parseId(id);
     if (!this.haveContainer(containerId)) {
       return undefined;
     }
-    return this.getContainer(containerId)?.haveBean(id);
+    return this.getContainer(containerId)?.haveBean(bid);
   }
 
   /**
@@ -145,11 +154,15 @@ export default class DependencyInjector {
    * @throws ContainerNotFoundError if the specified container does not exist.
    * @throws DependencyNotFoundError if the specified bean does not exist in the container.
    */
-  public getBean(id: string, containerId: string = DEFAULT_CONTAINER_ID) {
+  public getBean(
+    id: string | ClassType,
+    containerId: string = DEFAULT_CONTAINER_ID
+  ) {
+    const bid = parseId(id);
     if (!this.haveContainer(containerId)) {
       throw new ContainerNotFoundError();
     }
-    return this.getContainer(containerId)?.getBean(id);
+    return this.getContainer(containerId)?.getBean(bid);
   }
 
   /**
@@ -158,7 +171,7 @@ export default class DependencyInjector {
    * Pending AutoWires will be automatically resolved.
    * @example
    * class MyService { ... }
-   * const myServiceBean = new Bean('myService', MyService);
+   * const myServiceBean = new Bean(MyService);
    * // You can instantiate the bean yourself if you need to.
    * myServiceBean.setInstance(new MyService());
    * injector.registerCookedBean(myServiceBean);
@@ -181,7 +194,7 @@ export default class DependencyInjector {
   }
 
   /**
-   * Register a new bean with its id, class, and type in the specified container.
+   * Register a new bean with its class, id, and type in the specified container.
    *
    * Pending AutoWires will be automatically resolved.
    * @example
@@ -191,17 +204,17 @@ export default class DependencyInjector {
    *         console.log("Im "+bean.getId());
    *     }
    * }
-   * injector.registerBean('myService', MyService);
-   * @param id - The ID of the bean to register.
+   * injector.registerBean(MyService);
    * @param clazz - The class of the bean to register.
+   * @param id - The ID of the bean to register. Will take the name of the provided class if not provided.
    * @param type - The type of the bean.
    * @param containerId - The ID of the container to register the bean in.
    * @returns The registered bean.
    * @throws ContainerNotFoundError if the specified container does not exist.
    */
   public registerBean(
-    id: string,
     clazz: ClassType,
+    id?: string,
     type: BeanType = DEFAULT_BEAN_TYPE,
     containerId: string = DEFAULT_CONTAINER_ID
   ) {
@@ -209,7 +222,7 @@ export default class DependencyInjector {
     if (!container) {
       throw new ContainerNotFoundError();
     }
-    const retBean = container.registerRawBean(id, clazz, type);
+    const retBean = container.registerRawBean(clazz, id, type);
     this.executeAutoWireQueue();
     return retBean;
   }
@@ -218,7 +231,7 @@ export default class DependencyInjector {
    * Try to wire to a bean, if not found, will pass the bean in the descriptor when later registered.
    * @example
    * class MyController {
-   *     private myService = injector.autoWire('myService', (b) => this.myService = b)
+   *     private myService = injector.autoWire(MyService, (b) => this.myService = b)
    * }
    * // Please note that the autoWire function does not wait for the bean to be registered
    * // the value will be `undefined` until replaced by the correct instance.
@@ -230,17 +243,18 @@ export default class DependencyInjector {
    * @returns The autowired instance, or `undefined` if the bean is not found.
    */
   public autoWire(
-    id: string,
+    id: string | ClassType,
     descriptor: AutowiredDescriptor,
     containerId: string = DEFAULT_CONTAINER_ID
   ) {
-    if (this.haveBean(id, containerId)) {
-      const instance = this.wire(id, containerId);
-      descriptor(instance as undefined);
+    const bid = parseId(id);
+    if (this.haveBean(bid, containerId)) {
+      const instance = this.wire(bid, containerId);
+      descriptor(instance as unknown as undefined);
       return instance as undefined;
     }
     this.autoWireQueue.push(
-      new AutoWireQueueElement(id, containerId, descriptor)
+      new AutoWireQueueElement(bid, containerId, descriptor)
     );
     return undefined;
   }
@@ -254,11 +268,15 @@ export default class DependencyInjector {
    * @throws ContainerNotFoundError if the specified container does not exist.
    * @throws DependencyNotFoundError if the specified bean does not exist in the container.
    */
-  public wire(id: string, containerId: string = DEFAULT_CONTAINER_ID) {
-    const bean = this.getBean(id, containerId);
+  public wire<T extends ClassType>(
+    id: string | T,
+    containerId: string = DEFAULT_CONTAINER_ID
+  ) {
+    const bid = parseId(id);
+    const bean = this.getBean(bid, containerId);
     if (!bean) {
       throw new DependencyNotFoundError();
     }
-    return bean.getInstance();
+    return bean.getInstance() as InstanceType<T>;
   }
 }

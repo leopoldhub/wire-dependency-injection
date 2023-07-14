@@ -1,4 +1,4 @@
-export type ClassType = new (...args: Array<unknown>) => unknown;
+export type ClassType = new (...args: unknown[]) => unknown;
 
 export type BeanType = 'bean' | (string & NonNullable<unknown>);
 export type ContainerIdType = 'default' | (string & NonNullable<unknown>);

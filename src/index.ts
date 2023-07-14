@@ -12,15 +12,15 @@ const injector = new DependencyInjector();
 
 export default injector;
 
-export * from './errors/AbstractDependencyInjectionError.js';
-export * from './errors/ContainerAlreadyRegisteredError.js';
-export * from './errors/ContainerNotFoundError.js';
-export * from './errors/DependencyAlreadyRegisteredError.js';
-export * from './errors/DependencyNotFoundError.js';
+export { default as AbstractDependencyInjectionError } from './errors/AbstractDependencyInjectionError.js';
+export { default as ContainerAlreadyRegisteredError } from './errors/ContainerAlreadyRegisteredError.js';
+export { default as ContainerNotFoundError } from './errors/ContainerNotFoundError.js';
+export { default as DependencyAlreadyRegisteredError } from './errors/DependencyAlreadyRegisteredError.js';
+export { default as DependencyNotFoundError } from './errors/DependencyNotFoundError.js';
 
-export * from './AutoWiredQueueElement.js';
-export * from './Bean.js';
-export * from './Container.js';
-export * from './DependencyInjector.js';
+export { default as AutoWiredQueueElement } from './AutoWiredQueueElement.js';
+export { default as Bean } from './Bean.js';
+export { default as Container } from './Container.js';
+export { default as DependencyInjector } from './DependencyInjector.js';
 
 export * from './types.js';
