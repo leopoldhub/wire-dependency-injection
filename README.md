@@ -22,6 +22,8 @@ npm install --save wire-dependency-injection
 
 ## Examples
 
+**[Running typescript express example](https://github.com/leopoldhub/example-wire-dependency-injection)**
+
 Let's say you have a service that provides the current time.
 
 ```javascript
