@@ -1,6 +1,5 @@
 import {
   AutowiredDescriptor,
-  BeanType,
   ClassType,
   ContainerIdType,
   RegisterBeanArgs,
@@ -155,15 +154,15 @@ export default class DependencyInjector {
    * @throws ContainerNotFoundError if the specified container does not exist.
    * @throws DependencyNotFoundError if the specified bean does not exist in the container.
    */
-  public getBean(
-    id: string | ClassType,
+  public getBean<T extends ClassType = ClassType>(
+    id: string | T,
     containerId: string = DEFAULT_CONTAINER_ID
   ) {
     const bid = parseId(id);
     if (!this.haveContainer(containerId)) {
       throw new ContainerNotFoundError();
     }
-    return this.getContainer(containerId)?.getBean(bid);
+    return this.getContainer(containerId)?.getBean(bid) as Bean<T>;
   }
 
   /**
@@ -241,21 +240,21 @@ export default class DependencyInjector {
    * @param containerId - The ID of the container to retrieve the bean from.
    * @returns The autowired instance, or `undefined` if the bean is not found.
    */
-  public autoWire(
-    id: string | ClassType,
-    descriptor: AutowiredDescriptor,
+  public autoWire<T extends ClassType = ClassType>(
+    id: string | T,
+    descriptor: AutowiredDescriptor<InstanceType<T>>,
     containerId: string = DEFAULT_CONTAINER_ID
   ) {
     const bid = parseId(id);
     if (this.haveBean(bid, containerId)) {
       const instance = this.wire(bid, containerId);
-      descriptor(instance as unknown as undefined);
-      return instance as undefined;
+      descriptor(instance as unknown as InstanceType<T>);
+      return instance as InstanceType<T>;
     }
     this.autoWireQueue.push(
       new AutoWireQueueElement(bid, containerId, descriptor)
     );
-    return undefined;
+    return undefined as InstanceType<T>;
   }
 
   /**
@@ -267,7 +266,7 @@ export default class DependencyInjector {
    * @throws ContainerNotFoundError if the specified container does not exist.
    * @throws DependencyNotFoundError if the specified bean does not exist in the container.
    */
-  public wire<T extends ClassType>(
+  public wire<T extends ClassType = ClassType>(
     id: string | T,
     containerId: string = DEFAULT_CONTAINER_ID
   ) {
@@ -282,10 +281,10 @@ export default class DependencyInjector {
   /**
    * Returns a Promise that resolves with the wired instance.
    * @param id - The ID or class of the bean to wait for AutoWire.
-   * @param containerId - The ID of the container to retrieve the bean from. Defaults to DEFAULT_CONTAINER_ID.
+   * @param containerId - The ID of the container to retrieve the bean from.
    * @returns A Promise that resolves with the wired instance of the bean.
    */
-  public waitForWire<T extends ClassType>(
+  public waitForWire<T extends ClassType = ClassType>(
     id: string | T,
     containerId: string = DEFAULT_CONTAINER_ID
   ) {

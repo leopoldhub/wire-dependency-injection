@@ -76,12 +76,12 @@ export default class Container {
    * @returns The bean instance.
    * @throws DependencyNotFoundError if the specified bean does not exist in the container.
    */
-  public getBean(id: string | ClassType) {
+  public getBean<T extends ClassType = ClassType>(id: string | T) {
     const bid = parseId(id);
     if (!this.haveBean(bid)) {
       throw new DependencyNotFoundError();
     }
-    return this.beans.find((bean) => bean.getId() === id);
+    return this.beans.find((bean) => bean.getId() === id) as Bean<T>;
   }
 
   /**

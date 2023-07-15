@@ -57,13 +57,17 @@ One of the solutions is to use Dependency Injection.
 First, we need to declare our service (before we need it, so it's okay at startup).
 
 ```javascript
-injector.registerBean('clockService', ClockService);
+injector.registerBean(ClockService);
+// with a custom id
+injector.registerBean(ClockService, { id: 'myClockService' });
 ```
 
 And every time we need it, we can simply call it using its name.
 
 ```javascript
-injector.wire('clockService').getCurrentTime();
+injector.wire(ClockService).getCurrentTime();
+// by id
+injector.wire('myClockService').getCurrentTime();
 ```
 
 Now, let's say you have a service that prints the current time in the terminal.
@@ -72,7 +76,7 @@ We can wire the service with the `clockService` directly in the class declaratio
 
 ```javascript
 class TimePrintService {
-    private clockService = injector.autoWire('clockService', (b) => (this.clockService = b));
+    private clockService = injector.autoWire(ClockService, (b) => (this.clockService = b));
 
     public printCurrentTime() {
         console.log("Current time: ", clockService.getCurrentTime())
@@ -97,12 +101,12 @@ You can simply do it this way:
 
 ```javascript
 if (COUNTRY === 'France') {
-  injector.registerBean('clockService', FranceClockService);
+  injector.registerBean(FranceClockService, { id: 'myClockService' });
 } else {
-  injector.registerBean('clockService', EnglandClockService);
+  injector.registerBean(EnglandClockService, { id: 'myClockService' });
 }
 
-injector.wire('clockService').getCurrentTime();
+injector.wire('myClockService').getCurrentTime();
 ```
 
 ## Contributing
