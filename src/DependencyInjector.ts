@@ -289,7 +289,7 @@ export default class DependencyInjector {
     id: string | T,
     containerId: string = DEFAULT_CONTAINER_ID
   ) {
-    return new Promise((resolve) => {
+    return new Promise<InstanceType<T>>((resolve) => {
       this.autoWire(
         id,
         (b) => {
