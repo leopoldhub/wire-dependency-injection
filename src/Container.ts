@@ -1,8 +1,14 @@
-import { BeanType, ClassType, ContainerIdType } from './types.js';
+import {
+  BeanType,
+  ClassType,
+  ContainerIdType,
+  RegisterBeanArgs,
+} from './types.js';
 import Bean from './Bean.js';
 import DependencyAlreadyRegisteredError from './errors/DependencyAlreadyRegisteredError.js';
 import DependencyNotFoundError from './errors/DependencyNotFoundError.js';
 import { parseId } from './utils.js';
+import { DEFAULT_BEAN_TYPE, DEFAULT_CONTAINER_ID } from './index.js';
 
 /**
  * Containers holds beans for dependency injection.
@@ -12,11 +18,11 @@ import { parseId } from './utils.js';
  * const container1 = new Container(CONTAINER1_ID);
  * const container2 = injector.getContainer(CONTAINER2_ID);
  *
- * container1.registerRawBean('b1', B1);
+ * container1.registerRawBean(B1, {id: 'b1'});
  * // Will throw an error
- * container1.registerRawBean('b1', B1bis);
+ * container1.registerRawBean(B1bis, {id: 'b1'});
  * // Will work
- * container2.registerRawBean('b1', B1ter);
+ * container2.registerRawBean(B1ter, {id: 'b1'});
  */
 export default class Container {
   /**
@@ -96,13 +102,17 @@ export default class Container {
   /**
    * Registers a new bean with the specified ID, class, and type in the container.
    * @param clazz - The class of the bean to register.
-   * @param id - The ID of the bean to register. Will take the name of the provided class if not provided.
-   * @param type - The type of the bean.
+   * @param params - Parameters of the bean.
    * @returns The registered bean.
    * @throws DependencyAlreadyRegisteredError if a bean with the same ID is already registered.
    */
-  public registerRawBean(clazz: ClassType, id?: string, type?: BeanType) {
-    const bean = new Bean(clazz, id, type);
+  public registerRawBean(clazz: ClassType, params: RegisterBeanArgs = {}) {
+    const defParams: RegisterBeanArgs = {
+      type: DEFAULT_BEAN_TYPE,
+      containerId: DEFAULT_CONTAINER_ID,
+      ...params,
+    };
+    const bean = new Bean(clazz, defParams.id, defParams.type);
     return this.registerCookedBean(bean);
   }
 }

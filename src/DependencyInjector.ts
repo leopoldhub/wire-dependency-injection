@@ -3,6 +3,7 @@ import {
   BeanType,
   ClassType,
   ContainerIdType,
+  RegisterBeanArgs,
 } from './types.js';
 import {
   DEFAULT_BEAN_TYPE,
@@ -25,7 +26,7 @@ import { parseId } from './utils.js';
  * class MyService { ... }
  * injector.registerBean(MyService); // ID will be the name of the class
  * // You can also give a different ID to your bean
- * injector.registerBean(MyService, 'MySuperService');
+ * injector.registerBean(MyService, {id: 'MySuperService'});
  *
  * // To connect to a bean when this one is registered use the `wire` function.
  * const myService = injector.wire(MyService);
@@ -206,23 +207,21 @@ export default class DependencyInjector {
    * }
    * injector.registerBean(MyService);
    * @param clazz - The class of the bean to register.
-   * @param id - The ID of the bean to register. Will take the name of the provided class if not provided.
-   * @param type - The type of the bean.
-   * @param containerId - The ID of the container to register the bean in.
+   * @param params - Parameters of the bean.
    * @returns The registered bean.
    * @throws ContainerNotFoundError if the specified container does not exist.
    */
-  public registerBean(
-    clazz: ClassType,
-    id?: string,
-    type: BeanType = DEFAULT_BEAN_TYPE,
-    containerId: string = DEFAULT_CONTAINER_ID
-  ) {
-    const container = this.getContainer(containerId);
+  public registerBean(clazz: ClassType, params: RegisterBeanArgs = {}) {
+    const defParams: RegisterBeanArgs = {
+      type: DEFAULT_BEAN_TYPE,
+      containerId: DEFAULT_CONTAINER_ID,
+      ...params,
+    };
+    const container = this.getContainer(defParams.containerId);
     if (!container) {
       throw new ContainerNotFoundError();
     }
-    const retBean = container.registerRawBean(clazz, id, type);
+    const retBean = container.registerRawBean(clazz, defParams);
     this.executeAutoWireQueue();
     return retBean;
   }
@@ -278,5 +277,26 @@ export default class DependencyInjector {
       throw new DependencyNotFoundError();
     }
     return bean.getInstance() as InstanceType<T>;
+  }
+
+  /**
+   * Returns a Promise that resolves with the wired instance.
+   * @param id - The ID or class of the bean to wait for AutoWire.
+   * @param containerId - The ID of the container to retrieve the bean from. Defaults to DEFAULT_CONTAINER_ID.
+   * @returns A Promise that resolves with the wired instance of the bean.
+   */
+  public waitForWire<T extends ClassType>(
+    id: string | T,
+    containerId: string = DEFAULT_CONTAINER_ID
+  ) {
+    return new Promise((resolve) => {
+      this.autoWire(
+        id,
+        (b) => {
+          resolve(b as InstanceType<T>);
+        },
+        containerId
+      );
+    });
   }
 }
