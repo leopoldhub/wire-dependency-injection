@@ -2,7 +2,7 @@
   "name": "wire-dependency-injection",
   "version": "1.0.9",
   "description": "An easy to use JavaScript Dependency Injection Library",
-  "main": "dist/index.js",
+  "main": "dist/test.js",
   "type": "module",
   "scripts": {
     "compile": "tsc",
@@ -11,7 +11,9 @@
     "build:watch": "npm run test && npm run compile:watch",
     "clean": "rimraf dist/ logs/",
     "lint": "prettier --write . && prettier --check . && eslint",
-    "test": "npm run lint"
+    "test": "npm run lint",
+    "start": "node .",
+    "start:watch": "nodemon --watch dist --delay 2 --exec \"npm run start\""
   },
   "keywords": [
     "javascript",
@@ -44,6 +46,7 @@
     "@typescript-eslint/parser": "^6.0.0",
     "eslint": "^8.44.0",
     "eslint-config-prettier": "^8.8.0",
+    "nodemon": "^3.0.1",
     "prettier": "^3.0.0",
     "rimraf": "^5.0.1",
     "typescript": "^5.1.6"
