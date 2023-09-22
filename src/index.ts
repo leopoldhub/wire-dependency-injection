@@ -1,30 +1,43 @@
-/* eslint-disable @typescript-eslint/ban-types, @typescript-eslint/no-unused-vars */
-// TODO: refactor types
-import { ClassType, InstanceBeanBehaviour } from './types.js';
+/* eslint-disable @typescript-eslint/ban-types,@typescript-eslint/no-unused-vars,@typescript-eslint/no-explicit-any */
+import { ClassType, Couple, InstanceBeanBehaviour } from './types.js';
 import Bean from './Bean.js';
 import { arrayIncludesArrayAsChild } from './utils.js';
+import EventEmitter from 'events';
+import InterdependencyError from './error/bean/InterdependencyError.js';
+import InvalidIdentifierError from './error/identifier/InvalidIdentifierError.js';
+import IdentifierAlreadyExistsError from './error/identifier/IdentifierAlreadyExistsError.js';
+import MissingBeanInitializerError from './error/bean/MissingBeanInitializerError.js';
+import MissingDependenciesError from './error/MissingDependenciesError.js';
+import IdentifierNotFoundError from './error/identifier/IdentifierNotFoundError.js';
+import BeanNotReadyError from './error/bean/BeanNotReadyError.js';
+import DependencyInjectionError from './error/DependencyInjectionError.js';
 
 export const NO_INSTANCE = 'NO_INSTANCE';
 export const CAUTIOUS = 'CAUTIOUS';
 export const EAGER = 'EAGER';
 export const LAZY = 'LAZY';
 
-export class DependencyManager {
+export const ErrorEventId = 'error';
+
+export class DependencyManager extends EventEmitter {
   private readonly _beans: Array<Bean> = [];
   private readonly _connectors: Array<{
     identifier: string;
-    callback: (bean: unknown) => void;
+    callback: (value: unknown) => void;
   }> = [];
 
-  public parseIdentifier(object: unknown) {
-    if (typeof object === 'string') {
-      return object;
-    }
-    return (object as { name?: string }).name;
+  public constructor() {
+    super({ captureRejections: true });
+    this.on(ErrorEventId, console.error);
   }
 
+  // ===== Bean Management =====
   public getReadyBeans() {
     return this._beans.filter((b) => b.isReady());
+  }
+
+  public getReadyBean(identifier: string) {
+    return this.getReadyBeans().find((b) => b.identifier === identifier);
   }
 
   public getUnreadyBeans() {
@@ -35,12 +48,12 @@ export class DependencyManager {
     return this.getUnreadyBeans().find((b) => b.identifier === identifier);
   }
 
-  public getBean(identifier: string) {
-    return this._beans.find((bean) => bean.identifier === identifier);
+  public getBeans() {
+    return this._beans;
   }
 
-  public getReadyBean(identifier: string) {
-    return this.getReadyBeans().find((b) => b.identifier === identifier);
+  public getBean(identifier: string) {
+    return this._beans.find((bean) => bean.identifier === identifier);
   }
 
   public haveBean(identifier: string) {
@@ -57,16 +70,14 @@ export class DependencyManager {
 
   public registerBean(bean: Bean) {
     if (this.haveBean(bean.identifier)) {
-      throw new Error('identifier already taken');
+      throw new IdentifierAlreadyExistsError(bean.identifier);
     }
     this._beans.push(bean);
   }
 
+  // ===== Bean Declaration =====
   public declare(identifier: string, value: unknown) {
     const identifierValue = this.parseIdentifier(identifier ?? value);
-    if (!identifierValue) {
-      throw new Error('invalid identifier');
-    }
     const bean = new Bean(
       identifierValue,
       { value: value },
@@ -85,15 +96,13 @@ export class DependencyManager {
     } = { behaviour: CAUTIOUS }
   ) {
     const identifierValue = this.parseIdentifier(identifier ?? value);
-    if (!identifierValue) {
-      throw new Error('invalid identifier');
-    }
     const bean = new Bean(identifierValue, { initializer: value }, options);
     this.registerBean(bean);
     this.resolveBeans();
   }
 
-  public canBeanBeInitialized(bean: Bean) {
+  // ===== Bean Initialization =====
+  private canBeanBeInitialized(bean: Bean) {
     if (bean.isReady() || !bean.initializer) {
       return false;
     }
@@ -103,15 +112,14 @@ export class DependencyManager {
     return !wires?.some((w) => w === undefined);
   }
 
-  public initializeBean(bean: Bean) {
+  private initializeBean(bean: Bean) {
     if (!this.canBeanBeInitialized(bean)) {
       if (!bean.initializer) {
-        throw new Error('bean does not have an initializer');
+        throw new MissingBeanInitializerError(bean);
       }
-      throw new Error(
-        `bean is missing the following dependencies and connot be initialised: ${(
-          bean.options.wiring ?? []
-        ).filter((w) => !this.getReadyBean(w))}`
+      throw new MissingDependenciesError(
+        bean,
+        (bean.options.wiring ?? []).filter((w) => !this.getReadyBean(w))
       );
     }
 
@@ -121,8 +129,38 @@ export class DependencyManager {
     bean.initialize(...wires);
   }
 
-  public resolveInterdependencies() {
-    const interdependencyPairs: Array<Array<Bean>> = [];
+  // ===== Bean Wiring =====
+  public wire(identifier: string) {
+    let bean = this.getReadyBean(identifier);
+    if (!bean) {
+      bean = this.getBean(identifier);
+      if (bean) {
+        if (bean.options.behaviour === LAZY) {
+          try {
+            this.initializeBean(bean);
+          } catch (e) {
+            this.removeBean(bean);
+            this.emit(ErrorEventId, e as Error);
+            throw new IdentifierNotFoundError(identifier);
+          }
+        } else {
+          throw new BeanNotReadyError(bean);
+        }
+      } else {
+        throw new IdentifierNotFoundError(identifier);
+      }
+    }
+    return bean.value;
+  }
+
+  public autowire(identifier: string, callback: (value: unknown) => unknown) {
+    this._connectors.push({ identifier: identifier, callback: callback });
+    this.resolveConnectors();
+  }
+
+  // ===== Resolvers =====
+  private resolveInterdependencies() {
+    const interdependencyPairs: Array<Couple<Bean>> = [];
     this.getUnreadyBeans()
       .filter((bean) => bean.options.behaviour !== NO_INSTANCE)
       .forEach((bean1) => {
@@ -131,31 +169,23 @@ export class DependencyManager {
           .filter((bean) => bean !== undefined)
           .forEach((bean2) => {
             if (bean2?.options.wiring?.includes(bean1.identifier)) {
-              const pair = [bean1, bean2].sort(
+              const pair = ([bean1, bean2] as Couple<Bean>).sort(
                 (a, b) => a?.identifier.localeCompare(b?.identifier)
               );
               if (!arrayIncludesArrayAsChild(interdependencyPairs, pair)) {
                 interdependencyPairs.push(pair);
+                this.removeBean(bean1);
+                this.removeBean(bean2);
+                this.emit(ErrorEventId, new InterdependencyError(pair));
               }
             }
           });
       });
-
-    interdependencyPairs.forEach((pair) => {
-      this.removeBean(pair[0]);
-      this.removeBean(pair[1]);
-      console.log(
-        'interdependency found between beans',
-        pair.map((b) => b.identifier),
-        '!!!!'
-      );
-    });
   }
 
-  public resolveBeans() {
+  private resolveBeans() {
     this.resolveInterdependencies();
 
-    const errors: Array<{ bean: Bean; error: string }> = [];
     const unReadyBeans = this.getUnreadyBeans();
 
     let solvedSome = false;
@@ -172,36 +202,25 @@ export class DependencyManager {
             solvedSome = true;
           }
         } catch (e) {
-          errors.push({
-            bean: bean,
-            error: e instanceof String ? (e as string) : (e as Error).message,
-          });
+          this.removeBean(bean);
+          this.emit(ErrorEventId, e as Error);
         }
       });
-
-    errors.forEach((e) => {
-      this.removeBean(e.bean);
-      console.log('bean:', e.bean.identifier, ', error:', e.error);
-    });
 
     if (solvedSome) {
       this.resolveBeans();
     }
   }
 
-  public resolveConnectors() {
-    const errors: Array<{ bean: Bean; error: string }> = [];
-
+  private resolveConnectors() {
     this._connectors.forEach((connector) => {
       let bean = this.getBean(connector.identifier);
       if (bean && !bean.isReady() && bean.options.behaviour === LAZY) {
         try {
           this.initializeBean(bean);
         } catch (e) {
-          errors.push({
-            bean: bean,
-            error: e instanceof String ? (e as string) : (e as Error).message,
-          });
+          this.removeBean(bean);
+          this.emit(ErrorEventId, e as Error);
         }
       }
       bean = this.getReadyBean(connector.identifier);
@@ -209,37 +228,45 @@ export class DependencyManager {
         return connector.callback(bean.value);
       }
     });
-
-    errors.forEach((e) => {
-      this.removeBean(e.bean);
-      console.log('bean:', e.bean.identifier, ', error:', e.error);
-    });
   }
 
-  public wire(identifier: string) {
-    let bean = this.getReadyBean(identifier);
-    if (!bean) {
-      bean = this.getBean(identifier);
-      if (bean) {
-        if (bean.options.behaviour === LAZY) {
-          try {
-            this.initializeBean(bean);
-          } catch (e) {
-            this.removeBean(bean);
-            throw e;
-          }
-        } else {
-          throw new Error('the bean with this identifier is not ready yet');
-        }
-      } else {
-        throw new Error('no bean found with this identifier');
-      }
+  // ===== Error Management =====
+  public on(
+    eventName: typeof ErrorEventId,
+    listener: (error: DependencyInjectionError) => void
+  ): this;
+  public on(
+    eventName: string | symbol,
+    listener: (...args: any[]) => void
+  ): this {
+    return super.on(eventName, listener);
+  }
+
+  public once(
+    eventName: typeof ErrorEventId,
+    listener: (error: DependencyInjectionError) => void
+  ): this;
+  public once(
+    eventName: string | symbol,
+    listener: (...args: any[]) => void
+  ): this {
+    return super.once(eventName, listener);
+  }
+
+  public emit(eventName: typeof ErrorEventId, error: Error): boolean;
+  public emit(eventName: string | symbol, ...args: any[]): boolean {
+    return super.emit(eventName, ...args);
+  }
+
+  // ===== Utils =====
+  private parseIdentifier(object: unknown) {
+    if (typeof object === 'string') {
+      return object;
     }
-    return bean.value;
-  }
-
-  public autowire(identifier: string, callback: (value: unknown) => unknown) {
-    this._connectors.push({ identifier: identifier, callback: callback });
-    this.resolveConnectors();
+    const identifier = (object as { name?: string }).name;
+    if (identifier === undefined) {
+      throw new InvalidIdentifierError(identifier);
+    }
+    return identifier;
   }
 }
