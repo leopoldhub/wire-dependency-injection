@@ -6,9 +6,9 @@ export function isClass(obj: Function) {
   );
 }
 
-export function arrayIncludesArrayAsChild(
-  parent: Array<Array<unknown>>,
-  search: Array<unknown>
+export function arrayIncludesArrayAsChild<T>(
+  parent: Array<Array<T>>,
+  search: Array<T>
 ) {
   return parent.some(
     (child) =>
@@ -16,4 +16,16 @@ export function arrayIncludesArrayAsChild(
       (child.length === search.length &&
         child.every((element, index) => search[index] === element))
   );
+}
+
+export function uniqueArrayAsChildFilter<T extends Array<unknown>>(
+  array: Array<T>
+) {
+  const uniqueArray: Array<T> = [];
+  array.forEach((element) => {
+    if (!arrayIncludesArrayAsChild(uniqueArray, element)) {
+      uniqueArray.push(element);
+    }
+  });
+  return uniqueArray;
 }

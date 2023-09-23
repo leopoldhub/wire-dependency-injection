@@ -1,18 +1,19 @@
-import { CAUTIOUS, DependencyManager, EAGER, LAZY } from './index.js';
-
-const dependencyManager = new DependencyManager();
+import dependencyManager, { CAUTIOUS, EAGER, LAZY } from './index.js';
 
 // declare simple bean
-
 dependencyManager.declare('a-bean', 5);
 
 console.log(dependencyManager.wire('a-bean'));
 
-// dependencyManager.declare('a-bean', 6);
+try {
+  dependencyManager.declare('a-bean', 6);
+} catch (e) {
+  console.error(e);
+}
 
 dependencyManager.declare('b-bean', 6);
 
-dependencyManager.autowire('b-bean', (val) => console.log(val));
+dependencyManager.autoWire('b-bean', (val) => console.log(val));
 
 // declare instance bean
 
@@ -130,4 +131,17 @@ dependencyManager.instance('lazy-k-bean', LazyK, {
   wiring: ['missing-bean'],
 });
 
-dependencyManager.wire('lazy-k-bean');
+try {
+  dependencyManager.wire('lazy-k-bean');
+} catch (e) {
+  console.error(e);
+}
+
+// self dependent
+
+class SD {}
+
+dependencyManager.instance('sd-bean', SD, {
+  behaviour: CAUTIOUS,
+  wiring: ['sd-bean'],
+});

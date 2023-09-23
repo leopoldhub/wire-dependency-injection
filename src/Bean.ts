@@ -1,53 +1,62 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import { BeanBehaviour, ClassType } from './types.js';
+import {
+  BeanContentParameter,
+  BeanIdentifier,
+  BeanInitializer,
+  BeanOptions,
+  BeanValue,
+  ClassType,
+} from './types.js';
 import { isClass } from './utils.js';
-
-type BeanContentParameter =
-  | { initializer: Function | ClassType; value?: unknown }
-  | {
-      initializer?: Function | ClassType;
-      value: unknown;
-    };
-
-type BeanOptions = {
-  behaviour: BeanBehaviour;
-  wiring?: Array<string>;
-};
+import BeanInitializerNotInstantiable from './error/bean/BeanInitializerNotInstantiable.js';
+import BeanAlreadyInitialized from './error/bean/BeanAlreadyInitialized.js';
 
 export default class Bean {
-  private readonly _identifier: string;
-  private readonly _initializer?: Function | ClassType;
-  private _value?: unknown;
+  private readonly _identifier: BeanIdentifier;
+  private readonly _initializer?: BeanInitializer;
+  private _value?: BeanValue;
   private readonly _options: BeanOptions;
+  private _ready: boolean;
 
   public constructor(
-    identifier: string,
+    identifier: BeanIdentifier,
     content: BeanContentParameter,
-    options: BeanOptions
+    options: BeanOptions,
+    ready: boolean = false
   ) {
     this._identifier = identifier;
     this._initializer = content.initializer;
     this._value = content.value;
     this._options = options;
+    this._ready = ready;
   }
 
-  public initialize(...wires: Array<unknown>) {
-    if (isClass(this._initializer as Function)) {
-      this._value = new (this._initializer as unknown as ClassType)(...wires);
-      return;
+  public initialize(...wireValues: Array<BeanValue>) {
+    if (this._ready) {
+      throw new BeanAlreadyInitialized(this);
     }
-    this._value = (this._initializer as Function)(wires);
+    if (this._initializer === undefined) {
+      throw new BeanInitializerNotInstantiable(this);
+    }
+    if (isClass(this._initializer as Function)) {
+      this._value = new (this._initializer as unknown as ClassType)(
+        ...wireValues
+      );
+    } else {
+      this._value = (this._initializer as Function)(wireValues);
+    }
+    this._ready = true;
   }
 
-  public get identifier(): string {
+  public get identifier(): BeanIdentifier {
     return this._identifier;
   }
 
-  public get initializer(): Function | ClassType | undefined {
+  public get initializer(): BeanInitializer | undefined {
     return this._initializer;
   }
 
-  public get value(): unknown {
+  public get value(): BeanValue {
     return this._value;
   }
 
@@ -56,6 +65,6 @@ export default class Bean {
   }
 
   public isReady(): boolean {
-    return !!this.value;
+    return this._ready;
   }
 }
