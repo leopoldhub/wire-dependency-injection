@@ -5,10 +5,16 @@ import { BEAN } from './beanCategories.js';
 // eslint-disable-next-line
 export type ClassType = new (...args: any) => any;
 
+/**
+ * Behaviours who allows instancing
+ */
 export type InstanceBeanBehaviour =
   | typeof CAUTIOUS
   | typeof EAGER
   | typeof LAZY;
+/**
+ * A behaviour indicates how a bean should act when resolving and instancing
+ */
 export type BeanBehaviour = typeof NO_INSTANCE | InstanceBeanBehaviour;
 
 export type Beancategory = typeof BEAN | (string & {});
@@ -47,21 +53,7 @@ export type InstanceParameters = {
   category?: Beancategory;
 };
 
-export type Connector = (
-  | {
-      identifier: BeanIdentifier;
-      category: Beancategory;
-    }
-  | {
-      identifier?: BeanIdentifier;
-      category: Beancategory;
-    }
-  | {
-      identifier: BeanIdentifier;
-      category?: Beancategory;
-    }
-) & {
-  getFirst?: boolean;
+export type Connector = BeanSearch & {
   callback: ConnectorCallback;
 };
 
@@ -69,12 +61,15 @@ export type ConnectorCallback<T extends BeanValue = BeanValue> = (
   value: T
 ) => void;
 
-export type Wire = BeanIdentifier;
+export type Wire = BeanIdentifier | BeanSearch;
 
-export type BeanSearch =
+export type BeanSearch = (
   | { identifier: BeanIdentifier; category: Beancategory }
   | {
       identifier?: BeanIdentifier;
       category: Beancategory;
     }
-  | { identifier: BeanIdentifier; category?: Beancategory };
+  | { identifier: BeanIdentifier; category?: Beancategory }
+) & {
+  getFirst?: boolean;
+};

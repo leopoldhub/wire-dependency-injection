@@ -42,5 +42,7 @@ export function extractBeanSearch(
       search.identifier || search.category ? search.identifier : search,
     // @ts-ignore
     category: search.category,
+    // @ts-ignore
+    getFirst: !!search.getFirst,
   };
 }

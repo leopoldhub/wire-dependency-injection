@@ -180,7 +180,7 @@ console.log(
 );
 
 console.log(dependencyManager.wire({ category: CONTROLLER }));
-console.log(dependencyManager.wire({ category: CONTROLLER }, true));
+console.log(dependencyManager.wire({ category: CONTROLLER, getFirst: true }));
 
 let nControllerInstance: NController = dependencyManager.autoWire(
   'n-controller',
