@@ -1,6 +1,12 @@
-import dependencyManager, { CAUTIOUS, EAGER, LAZY } from './index.js';
+import dependencyManager, {
+  Beancategory,
+  /*CAUTIOUS,
+  EAGER,
+  LAZY,*/
+} from './index.js';
 
 // declare simple bean
+/*
 dependencyManager.declare('a-bean', 5);
 
 console.log(dependencyManager.wire('a-bean'));
@@ -145,3 +151,52 @@ dependencyManager.instance('sd-bean', SD, {
   behaviour: CAUTIOUS,
   wiring: ['sd-bean'],
 });
+*/
+// categories
+
+const CONTROLLER: Beancategory = 'CONTROLLER';
+
+class LController {}
+
+dependencyManager.instance('l-controller', LController, {
+  category: CONTROLLER,
+});
+
+console.log(
+  dependencyManager.wire({
+    identifier: 'l-controller',
+    category: CONTROLLER,
+  })
+);
+console.log(dependencyManager.wire({ category: CONTROLLER }));
+
+class MController {}
+
+dependencyManager.instance('m-controller', MController, {
+  category: CONTROLLER,
+});
+console.log(
+  dependencyManager.wire<InstanceType<typeof MController>>('m-controller')
+);
+
+console.log(dependencyManager.wire({ category: CONTROLLER }));
+console.log(dependencyManager.wire({ category: CONTROLLER }, true));
+
+let nControllerInstance: NController = dependencyManager.autoWire(
+  'n-controller',
+  (value) => {
+    nControllerInstance = value;
+  }
+);
+
+console.log(nControllerInstance?.a);
+
+class NController {
+  public a = 10000;
+}
+
+dependencyManager.instance('n-controller', NController, {
+  category: CONTROLLER,
+});
+
+console.log(nControllerInstance.a);

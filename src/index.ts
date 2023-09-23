@@ -6,6 +6,7 @@ export * from './DependencyManager.js';
 export * from './Bean.js';
 export * as beanBehaviours from './beanBehaviours.js';
 export * from './beanBehaviours.js';
+export * from './beanCategories.js';
 
 export * from './error/DependencyInjectionError.js';
 export * from './error/bean/BeanError.js';
@@ -17,9 +18,8 @@ export * from './error/bean/BeanInitializerNotInstantiable.js';
 export * from './error/bean/BeanAlreadyInitialized.js';
 export * from './error/identifier/IdentifierError.js';
 export * from './error/identifier/IdentifierAlreadyExistsError.js';
-export * from './error/identifier/IdentifierNotFoundError.js';
+export * from './error/BeanNotFoundError.js';
 export * from './error/identifier/InvalidIdentifierError.js';
-export * from './error/MissingDependenciesError.js';
 
 export * as utils from './utils.js';
 

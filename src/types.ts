@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import { CAUTIOUS, EAGER, LAZY, NO_INSTANCE } from './beanBehaviours.js';
+import { BEAN } from './beanCategories.js';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// eslint-disable-next-line
 export type ClassType = new (...args: any) => any;
 
 export type InstanceBeanBehaviour =
@@ -10,14 +11,24 @@ export type InstanceBeanBehaviour =
   | typeof LAZY;
 export type BeanBehaviour = typeof NO_INSTANCE | InstanceBeanBehaviour;
 
+export type Beancategory = typeof BEAN | (string & {});
+
 export type Couple<T> = [T, T];
 
-export type BeanContentParameter =
-  | { initializer: BeanInitializer; value?: BeanValue }
+export type BeanContentParameter = (
+  | {
+      initializer: BeanInitializer;
+      value: BeanValue;
+    }
   | {
       initializer?: BeanInitializer;
       value: BeanValue;
-    };
+    }
+  | {
+      initializer: BeanInitializer;
+      value?: BeanValue;
+    }
+) & { category: Beancategory };
 
 export type BeanOptions = {
   behaviour: BeanBehaviour;
@@ -30,12 +41,27 @@ export type BeanInitializer = Function | ClassType;
 
 export type BeanValue = any;
 
-export type InstanceParameters = BeanOptions & {
-  behaviour: InstanceBeanBehaviour;
+export type InstanceParameters = {
+  behaviour?: InstanceBeanBehaviour;
+  wiring?: Array<Wire>;
+  category?: Beancategory;
 };
 
-export type Connector = {
-  identifier: BeanIdentifier;
+export type Connector = (
+  | {
+      identifier: BeanIdentifier;
+      category: Beancategory;
+    }
+  | {
+      identifier?: BeanIdentifier;
+      category: Beancategory;
+    }
+  | {
+      identifier: BeanIdentifier;
+      category?: Beancategory;
+    }
+) & {
+  getFirst?: boolean;
   callback: ConnectorCallback;
 };
 
@@ -44,3 +70,11 @@ export type ConnectorCallback<T extends BeanValue = BeanValue> = (
 ) => void;
 
 export type Wire = BeanIdentifier;
+
+export type BeanSearch =
+  | { identifier: BeanIdentifier; category: Beancategory }
+  | {
+      identifier?: BeanIdentifier;
+      category: Beancategory;
+    }
+  | { identifier: BeanIdentifier; category?: Beancategory };

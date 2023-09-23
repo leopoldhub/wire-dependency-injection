@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import { BeanIdentifier, BeanSearch } from './types.js';
+
 // eslint-disable-next-line @typescript-eslint/ban-types
 export function isClass(obj: Function) {
   return (
@@ -28,4 +31,16 @@ export function uniqueArrayAsChildFilter<T extends Array<unknown>>(
     }
   });
   return uniqueArray;
+}
+
+export function extractBeanSearch(
+  search: BeanIdentifier | BeanSearch
+): BeanSearch {
+  return {
+    identifier:
+      // @ts-ignore
+      search.identifier || search.category ? search.identifier : search,
+    // @ts-ignore
+    category: search.category,
+  };
 }

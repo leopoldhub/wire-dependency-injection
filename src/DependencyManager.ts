@@ -3,8 +3,10 @@ import Bean from './Bean.js';
 import IdentifierAlreadyExistsError from './error/identifier/IdentifierAlreadyExistsError.js';
 import { CAUTIOUS, EAGER, LAZY, NO_INSTANCE } from './beanBehaviours.js';
 import {
+  Beancategory,
   BeanIdentifier,
   BeanInitializer,
+  BeanSearch,
   BeanValue,
   Connector,
   ConnectorCallback,
@@ -12,14 +14,13 @@ import {
   InstanceParameters,
 } from './types.js';
 import MissingBeanInitializerError from './error/bean/MissingBeanInitializerError.js';
-import MissingDependenciesError from './error/MissingDependenciesError.js';
-import IdentifierNotFoundError from './error/identifier/IdentifierNotFoundError.js';
+import BeanNotFoundError from './error/BeanNotFoundError.js';
 import BeanNotReadyError from './error/bean/BeanNotReadyError.js';
-import { uniqueArrayAsChildFilter } from './utils.js';
 import InterDependencyError from './error/bean/InterDependencyError.js';
 import DependencyInjectionError from './error/DependencyInjectionError.js';
-import InvalidIdentifierError from './error/identifier/InvalidIdentifierError.js';
 import SelfDependencyError from './error/bean/SelfDependencyError.js';
+import { extractBeanSearch, uniqueArrayAsChildFilter } from './utils.js';
+import { BEAN } from './beanCategories.js';
 
 export const ErrorEventId = 'error';
 
@@ -35,28 +36,45 @@ export class DependencyManager extends EventEmitter {
   }
 
   // ===== Bean Management =====
-  public getReadyBeans() {
-    return this._beans.filter((b) => b.isReady());
+  public getReadyBeans(category?: Beancategory) {
+    return this._beans.filter(
+      (b) => b.isReady() && (!category || b.category === category)
+    );
   }
 
-  public getReadyBean(identifier: BeanIdentifier) {
-    return this.getReadyBeans().find((b) => b.identifier === identifier);
+  public getReadyBean(search: BeanIdentifier | BeanSearch) {
+    const searchOptions = extractBeanSearch(search);
+    return this.getReadyBeans(searchOptions.category).find(
+      (b) =>
+        !searchOptions.identifier || b.identifier === searchOptions.identifier
+    );
   }
 
-  public getUnreadyBeans() {
-    return this._beans.filter((b) => !b.isReady());
+  public getUnreadyBeans(category?: Beancategory) {
+    return this._beans.filter(
+      (b) => !b.isReady() && (!category || b.category === category)
+    );
   }
 
-  public getUnreadyBean(identifier: BeanIdentifier) {
-    return this.getUnreadyBeans().find((b) => b.identifier === identifier);
+  public getUnreadyBean(search: BeanIdentifier | BeanSearch) {
+    const searchOptions = extractBeanSearch(search);
+    return this.getUnreadyBeans(searchOptions.category).find(
+      (b) =>
+        !searchOptions.identifier || b.identifier === searchOptions.identifier
+    );
   }
 
-  public getBeans() {
-    return this._beans;
+  public getBeans(category?: Beancategory) {
+    return this._beans.filter((b) => !category || b.category === category);
   }
 
-  public getBean(identifier: BeanIdentifier) {
-    return this._beans.find((bean) => bean.identifier === identifier);
+  public getBean(search: BeanIdentifier | BeanSearch) {
+    const searchOptions = extractBeanSearch(search);
+    return this.getBeans(searchOptions.category).find(
+      (bean) =>
+        !searchOptions.identifier ||
+        bean.identifier === searchOptions.identifier
+    );
   }
 
   private getInitializableBeans() {
@@ -65,8 +83,8 @@ export class DependencyManager extends EventEmitter {
     );
   }
 
-  public haveBean(identifier: BeanIdentifier) {
-    return !!this.getBean(identifier);
+  public haveBean(search: BeanIdentifier | BeanSearch) {
+    return !!this.getBean(search);
   }
 
   private getBeanIndex(bean: Bean) {
@@ -89,11 +107,14 @@ export class DependencyManager extends EventEmitter {
   }
 
   // ===== Bean Declaration =====
-  public declare(identifier: BeanIdentifier, value: BeanValue) {
-    const identifierValue = this.parseIdentifier(identifier ?? value);
+  public declare(
+    identifier: BeanIdentifier,
+    value: BeanValue,
+    category: Beancategory = BEAN
+  ) {
     const bean = new Bean(
-      identifierValue,
-      { value: value },
+      identifier,
+      { value: value, category: category },
       { behaviour: NO_INSTANCE },
       true
     );
@@ -104,10 +125,13 @@ export class DependencyManager extends EventEmitter {
   public instance(
     identifier: BeanIdentifier,
     value: BeanInitializer,
-    options: InstanceParameters = { behaviour: CAUTIOUS }
+    options: InstanceParameters = {}
   ) {
-    const identifierValue = this.parseIdentifier(identifier ?? value);
-    const bean = new Bean(identifierValue, { initializer: value }, options);
+    const bean = new Bean(
+      identifier,
+      { initializer: value, category: options.category ?? BEAN },
+      { behaviour: options.behaviour ?? CAUTIOUS, wiring: options.wiring }
+    );
     this.registerBean(bean);
     this.resolveBeans();
   }
@@ -127,10 +151,7 @@ export class DependencyManager extends EventEmitter {
         if (!bean.initializer) {
           throw new MissingBeanInitializerError(bean);
         }
-        throw new MissingDependenciesError(
-          bean,
-          (bean.options.wiring ?? []).filter((w) => !this.getReadyBean(w))
-        );
+        throw new BeanNotReadyError(bean);
       }
 
       const wiresValues = (bean.options.wiring ?? [])?.map(
@@ -145,36 +166,60 @@ export class DependencyManager extends EventEmitter {
   }
 
   // ===== Bean Wiring =====
-  public wire<T extends BeanValue = BeanValue>(identifier: BeanIdentifier) {
-    let bean = this.getReadyBean(identifier);
-    if (!bean) {
-      bean = this.getBean(identifier);
-      if (bean) {
-        if (
-          bean.options.behaviour === LAZY &&
-          this.canBeanBeInitialized(bean)
-        ) {
-          try {
-            this.initializeBean(bean);
-          } catch (e) {
-            throw new IdentifierNotFoundError(identifier);
-          }
-        } else {
-          throw new BeanNotReadyError(bean);
-        }
-      } else {
-        throw new IdentifierNotFoundError(identifier);
-      }
+  public wire<T = any>(
+    search: BeanIdentifier | BeanSearch,
+    getFirst?: boolean
+  ): T {
+    const searchOptions = extractBeanSearch(search);
+    const multiple = !searchOptions.identifier && !getFirst;
+    if (!multiple) {
+      return this.wireSingleBean(searchOptions).value as T;
+    } else {
+      return this.wireMultipleBeans(searchOptions).map(
+        (bean) => bean.value
+      ) as T;
     }
-    return bean.value as T;
   }
 
-  public autoWire<T extends BeanValue = BeanValue>(
-    identifier: BeanIdentifier,
-    callback: ConnectorCallback<T>
+  private wireSingleBean(beanSearch: BeanSearch) {
+    let bean = this.getReadyBean(beanSearch);
+    if (!bean) {
+      bean = this.getBean(beanSearch);
+      if (!bean) {
+        throw new BeanNotFoundError(beanSearch.identifier, beanSearch.category);
+      }
+      if (bean.options.behaviour !== LAZY) {
+        throw new BeanNotReadyError(bean);
+      }
+      this.initializeBean(bean);
+    }
+    return bean;
+  }
+
+  private wireMultipleBeans(beanSearch: BeanSearch) {
+    this.getUnreadyBeans(beanSearch.category).forEach((bean) => {
+      try {
+        if (bean.options.behaviour === LAZY) {
+          this.initializeBean(bean);
+        }
+      } catch (e) {
+        /* empty */
+      }
+    });
+    return this.getReadyBeans(beanSearch.category);
+  }
+
+  public autoWire<T = any>(
+    search: BeanIdentifier | BeanSearch,
+    callback: ConnectorCallback<T>,
+    getFirst?: boolean
   ) {
-    this._connectors.push({ identifier: identifier, callback: callback });
-    this.resolveConnectors();
+    this._connectors.push({
+      ...extractBeanSearch(search),
+      getFirst: getFirst,
+      callback: callback,
+    });
+    return this.resolveConnectors() as T;
   }
 
   // ===== Resolvers =====
@@ -240,27 +285,17 @@ export class DependencyManager extends EventEmitter {
     if (solvedSome) {
       this.resolveBeans();
     }
+    this.resolveConnectors();
   }
 
   private resolveConnectors() {
     this._connectors.forEach((connector) => {
-      let bean = this.getBean(connector.identifier);
-      if (
-        bean &&
-        bean.options.behaviour === LAZY &&
-        this.canBeanBeInitialized(bean)
-      ) {
-        try {
-          this.initializeBean(bean);
-        } catch (e) {
-          /* empty */
-        }
+      try {
+        const value = this.wire(connector, connector.getFirst);
+        connector.callback(value);
+      } catch (e) {
+        /* empty */
       }
-      bean = this.getReadyBean(connector.identifier);
-      if (!bean) {
-        return;
-      }
-      connector.callback(bean.value);
     });
   }
 
@@ -290,18 +325,6 @@ export class DependencyManager extends EventEmitter {
   public emit(eventName: typeof ErrorEventId, error: Error): boolean;
   public emit(eventName: string | symbol, ...args: any[]): boolean {
     return super.emit(eventName, ...args);
-  }
-
-  // ===== Utils =====
-  private parseIdentifier(object: string | { name?: string }) {
-    if (typeof object === 'string') {
-      return object;
-    }
-    const identifier = object.name;
-    if (identifier === undefined) {
-      throw new InvalidIdentifierError(identifier);
-    }
-    return identifier;
   }
 }
 

@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import {
+  Beancategory,
   BeanContentParameter,
   BeanIdentifier,
   BeanInitializer,
@@ -13,6 +14,7 @@ import BeanAlreadyInitialized from './error/bean/BeanAlreadyInitialized.js';
 
 export default class Bean {
   private readonly _identifier: BeanIdentifier;
+  private readonly _category: Beancategory;
   private readonly _initializer?: BeanInitializer;
   private _value?: BeanValue;
   private readonly _options: BeanOptions;
@@ -25,6 +27,7 @@ export default class Bean {
     ready: boolean = false
   ) {
     this._identifier = identifier;
+    this._category = content.category;
     this._initializer = content.initializer;
     this._value = content.value;
     this._options = options;
@@ -50,6 +53,10 @@ export default class Bean {
 
   public get identifier(): BeanIdentifier {
     return this._identifier;
+  }
+
+  public get category(): Beancategory {
+    return this._category;
   }
 
   public get initializer(): BeanInitializer | undefined {
