@@ -17,7 +17,7 @@ export type InstanceBeanBehaviour =
  */
 export type BeanBehaviour = typeof NO_INSTANCE | InstanceBeanBehaviour;
 
-export type Beancategory = typeof BEAN | (string & {});
+export type BeanCategory = typeof BEAN | (string & {});
 
 export type Couple<T> = [T, T];
 
@@ -34,7 +34,7 @@ export type BeanContentParameter = (
       initializer: BeanInitializer;
       value?: BeanValue;
     }
-) & { category: Beancategory };
+) & { category: BeanCategory };
 
 export type BeanOptions = {
   behaviour: BeanBehaviour;
@@ -50,7 +50,7 @@ export type BeanValue = any;
 export type InstanceParameters = {
   behaviour?: InstanceBeanBehaviour;
   wiring?: Array<Wire>;
-  category?: Beancategory;
+  category?: BeanCategory;
 };
 
 export type Connector = BeanSearch & {
@@ -64,12 +64,12 @@ export type ConnectorCallback<T extends BeanValue = BeanValue> = (
 export type Wire = BeanIdentifier | BeanSearch;
 
 export type BeanSearch = (
-  | { identifier: BeanIdentifier; category: Beancategory }
+  | { identifier: BeanIdentifier; category: BeanCategory }
   | {
       identifier?: BeanIdentifier;
-      category: Beancategory;
+      category: BeanCategory;
     }
-  | { identifier: BeanIdentifier; category?: Beancategory }
+  | { identifier: BeanIdentifier; category?: BeanCategory }
 ) & {
   getFirst?: boolean;
 };

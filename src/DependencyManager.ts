@@ -3,7 +3,7 @@ import Bean from './Bean.js';
 import IdentifierAlreadyExistsError from './error/identifier/IdentifierAlreadyExistsError.js';
 import { CAUTIOUS, EAGER, LAZY, NO_INSTANCE } from './beanBehaviours.js';
 import {
-  Beancategory,
+  BeanCategory,
   BeanIdentifier,
   BeanInitializer,
   BeanSearch,
@@ -44,7 +44,7 @@ export class DependencyManager extends EventEmitter {
    * @param category filter.
    * @private
    */
-  private getReadyBeans(category?: Beancategory) {
+  private getReadyBeans(category?: BeanCategory) {
     return this._beans.filter(
       (b) => b.isReady() && (!category || b.category === category)
     );
@@ -66,7 +66,7 @@ export class DependencyManager extends EventEmitter {
    * @param category filter.
    * @private
    */
-  private getUnreadyBeans(category?: Beancategory) {
+  private getUnreadyBeans(category?: BeanCategory) {
     return this._beans.filter(
       (b) => !b.isReady() && (!category || b.category === category)
     );
@@ -88,7 +88,7 @@ export class DependencyManager extends EventEmitter {
    * @param category filter.
    * @private
    */
-  private getBeans(category?: Beancategory) {
+  private getBeans(category?: BeanCategory) {
     return this._beans.filter((b) => !category || b.category === category);
   }
 
@@ -151,7 +151,7 @@ export class DependencyManager extends EventEmitter {
   public declare(
     identifier: BeanIdentifier,
     value: BeanValue,
-    category: Beancategory = BEAN
+    category: BeanCategory = BEAN
   ) {
     const bean = new Bean(
       identifier,

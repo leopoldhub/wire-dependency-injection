@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import {
-  Beancategory,
+  BeanCategory,
   BeanContentParameter,
   BeanIdentifier,
   BeanInitializer,
@@ -19,7 +19,7 @@ import { NO_INSTANCE } from './beanBehaviours.js';
  */
 export default class Bean {
   private readonly _identifier: BeanIdentifier;
-  private readonly _category: Beancategory;
+  private readonly _category: BeanCategory;
   private readonly _initializer?: BeanInitializer;
   private _value?: BeanValue;
   private readonly _options: BeanOptions;
@@ -72,7 +72,7 @@ export default class Bean {
     return this._identifier;
   }
 
-  public get category(): Beancategory {
+  public get category(): BeanCategory {
     return this._category;
   }
 
