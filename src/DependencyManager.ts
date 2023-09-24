@@ -190,9 +190,10 @@ export class DependencyManager extends EventEmitter {
     if (bean.isReady() || !bean.initializer) {
       return false;
     }
-    const wires = (bean.options.wiring ?? [])?.map((w) =>
-      this.getReadyBean(extractBeanSearch(w))
-    );
+    const wires = (bean.options.wiring ?? [])
+      ?.map((w) => extractBeanSearch(w))
+      .filter((w) => w.identifier)
+      .map((w) => this.getReadyBean(extractBeanSearch(w)));
     return !wires?.some((w) => w === undefined);
   }
 
@@ -363,7 +364,7 @@ export class DependencyManager extends EventEmitter {
           ?.map((w) => this.getUnreadyBean(extractBeanSearch(w)))
           .filter((bean) => bean !== undefined) as Array<Bean>;
         return wireBeans.map((bean2) => {
-          if (bean1 === bean2 || this.areInterDependent(bean1, bean2)) {
+          if (bean1 !== bean2 && this.areInterDependent(bean1, bean2)) {
             return ([bean1, bean2] as Couple<Bean>).sort(
               (a, b) => a?.identifier.localeCompare(b?.identifier)
             );

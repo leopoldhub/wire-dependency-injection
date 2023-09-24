@@ -1,6 +1,6 @@
 {
   "name": "wire-dependency-injection",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "An easy to use JavaScript Dependency Injection Library",
   "main": "dist/index.js",
   "type": "module",
