@@ -1,89 +1,94 @@
-import { BeanType, ClassType } from './types.js';
-import { DEFAULT_BEAN_TYPE } from './index.js';
+/* eslint-disable @typescript-eslint/ban-types */
+import {
+  Beancategory,
+  BeanContentParameter,
+  BeanIdentifier,
+  BeanInitializer,
+  BeanOptions,
+  BeanValue,
+  ClassType,
+} from './types.js';
+import { isClass } from './utils.js';
+import BeanInitializerNotInstantiable from './error/bean/BeanInitializerNotInstantiable.js';
+import BeanAlreadyInitialized from './error/bean/BeanAlreadyInitialized.js';
+import { NO_INSTANCE } from './beanBehaviours.js';
 
 /**
- * Beans contains all information needed to manage dependencies
- *
- * @example
- * class MyService {
- *     public constructor(bean) {
- *         // ...
- *     }
- *     // ...
- * }
- * const myServiceBean = new Bean(MyService);
- * // You can also give it a custom ID
- * const myServiceBean = new Bean(MyService);
- * // You can instance the bean yourself if you need to
- * myServiceBean.setInstance(new MyService(myServiceBean));
- * injector.registerCookedBean(myServiceBean);
+ * A bean is an object that contains all the information about
+ * a dependency and is managed by the DependencyManager.
  */
-export default class Bean<T extends ClassType = ClassType> {
-  protected instance!: InstanceType<T>;
-  protected readonly id: string;
+export default class Bean {
+  private readonly _identifier: BeanIdentifier;
+  private readonly _category: Beancategory;
+  private readonly _initializer?: BeanInitializer;
+  private _value?: BeanValue;
+  private readonly _options: BeanOptions;
+  private _ready: boolean;
 
   /**
-   * Constructs a new instance of the Bean class.
-   * @param clazz - The class of the bean.
-   * @param id - The ID of the bean. Will take the name of the provided class if not provided.
-   * @param type - The type of the bean.
+   * @param identifier unique dependency identifier.
+   * @param content value, initializer or both.
+   * @param options options for behaviour and wiring.
+   * @param ready ready to use state.
    */
   public constructor(
-    protected readonly clazz: T,
-    id?: string,
-    protected readonly type: BeanType = DEFAULT_BEAN_TYPE
+    identifier: BeanIdentifier,
+    content: BeanContentParameter,
+    options: BeanOptions,
+    ready?: boolean
   ) {
-    this.id = id ? id : clazz.name;
+    this._identifier = identifier;
+    this._category = content.category;
+    this._initializer = content.initializer;
+    this._value = content.value;
+    this._options = options;
+    this._ready = ready ?? options.behaviour === NO_INSTANCE;
   }
 
   /**
-   * Gets the ID of the bean.
-   * @returns The ID of the bean.
+   * Initializes and declare the value.
+   * @throws BeanAlreadyInitialized if already initialized.
+   * @throws BeanInitializerNotInstantiable if the initializer is neither a function nor a class.
+   * @param wireValues parameters for initialization.
    */
-  public getId() {
-    return this.id;
-  }
-
-  /**
-   * Gets the class of the bean.
-   * @returns The class of the bean.
-   */
-  public getClazz() {
-    return this.clazz;
-  }
-
-  /**
-   * Gets the type of the bean.
-   * @returns The type of the bean.
-   */
-  public getType() {
-    return this.type;
-  }
-
-  /**
-   * Sets the instance of the bean.
-   * @param instance - The instance of the bean.
-   */
-  public setInstance(instance: InstanceType<T>) {
-    this.instance = instance;
-  }
-
-  /**
-   * Gets the instance of the bean.
-   * @returns The instance of the bean.
-   */
-  public getInstance() {
-    return this.instance;
-  }
-
-  /**
-   * Instantiates the bean if it's not already instantiated.
-   */
-  public instantiate() {
-    if (this.getInstance() === undefined) {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      this.setInstance(new (this.getClazz())(this));
+  public initialize(...wireValues: Array<BeanValue>) {
+    if (this._ready) {
+      throw new BeanAlreadyInitialized(this);
     }
+    if (this._initializer === undefined) {
+      throw new BeanInitializerNotInstantiable(this);
+    }
+    if (isClass(this._initializer as Function)) {
+      this._value = new (this._initializer as unknown as ClassType)(
+        ...wireValues
+      );
+    } else {
+      this._value = (this._initializer as Function)(wireValues);
+    }
+    this._ready = true;
+  }
+
+  public get identifier(): BeanIdentifier {
+    return this._identifier;
+  }
+
+  public get category(): Beancategory {
+    return this._category;
+  }
+
+  public get initializer(): BeanInitializer | undefined {
+    return this._initializer;
+  }
+
+  public get value(): BeanValue {
+    return this._value;
+  }
+
+  public get options(): BeanOptions {
+    return this._options;
+  }
+
+  public isReady(): boolean {
+    return this._ready;
   }
 }

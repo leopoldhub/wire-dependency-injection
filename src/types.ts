@@ -1,15 +1,75 @@
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+/* eslint-disable @typescript-eslint/ban-types */
+import { CAUTIOUS, EAGER, LAZY, NO_INSTANCE } from './beanBehaviours.js';
+import { BEAN } from './beanCategories.js';
+
+// eslint-disable-next-line
 export type ClassType = new (...args: any) => any;
 
-export type BeanType = 'bean' | (string & NonNullable<unknown>);
-export type ContainerIdType = 'default' | (string & NonNullable<unknown>);
+/**
+ * Behaviours who allows instancing
+ */
+export type InstanceBeanBehaviour =
+  | typeof CAUTIOUS
+  | typeof EAGER
+  | typeof LAZY;
+/**
+ * A behaviour indicates how a bean should act when resolving and instancing
+ */
+export type BeanBehaviour = typeof NO_INSTANCE | InstanceBeanBehaviour;
 
-export type AutowiredDescriptor<
-  T extends InstanceType<ClassType> = InstanceType<ClassType>,
-> = (val: T) => unknown;
+export type Beancategory = typeof BEAN | (string & {});
 
-export type RegisterBeanArgs = {
-  id?: string;
-  type?: BeanType;
-  containerId?: ContainerIdType;
+export type Couple<T> = [T, T];
+
+export type BeanContentParameter = (
+  | {
+      initializer: BeanInitializer;
+      value: BeanValue;
+    }
+  | {
+      initializer?: BeanInitializer;
+      value: BeanValue;
+    }
+  | {
+      initializer: BeanInitializer;
+      value?: BeanValue;
+    }
+) & { category: Beancategory };
+
+export type BeanOptions = {
+  behaviour: BeanBehaviour;
+  wiring?: Array<Wire>;
+};
+
+export type BeanIdentifier = string;
+
+export type BeanInitializer = Function | ClassType;
+
+export type BeanValue = any;
+
+export type InstanceParameters = {
+  behaviour?: InstanceBeanBehaviour;
+  wiring?: Array<Wire>;
+  category?: Beancategory;
+};
+
+export type Connector = BeanSearch & {
+  callback: ConnectorCallback;
+};
+
+export type ConnectorCallback<T extends BeanValue = BeanValue> = (
+  value: T
+) => void;
+
+export type Wire = BeanIdentifier | BeanSearch;
+
+export type BeanSearch = (
+  | { identifier: BeanIdentifier; category: Beancategory }
+  | {
+      identifier?: BeanIdentifier;
+      category: Beancategory;
+    }
+  | { identifier: BeanIdentifier; category?: Beancategory }
+) & {
+  getFirst?: boolean;
 };
