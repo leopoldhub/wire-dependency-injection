@@ -1,5 +1,6 @@
 import dependencyManager, {
   Beancategory,
+  DEFAULT_ERROR_HANDLER,
   /*CAUTIOUS,
   EAGER,
   LAZY,*/
@@ -200,3 +201,14 @@ dependencyManager.instance('n-controller', NController, {
 });
 
 console.log(nControllerInstance.a);
+
+let nc: NController = dependencyManager.autoWire('n-controller', (_) => {
+  nc = _;
+});
+console.log(nc);
+
+/*dependencyManager.removeListener('error', DEFAULT_ERROR_HANDLER);
+
+dependencyManager.instance('n-controller', NController, {
+  category: CONTROLLER,
+});*/

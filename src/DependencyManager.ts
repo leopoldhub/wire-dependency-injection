@@ -315,7 +315,13 @@ export class DependencyManager extends EventEmitter {
       ...extractBeanSearch(search),
       callback: callback,
     });
-    return this.resolveConnectors() as T;
+    this.resolveConnectors();
+    try {
+      return this.wire(search) as T;
+    } catch (e) {
+      /* empty */
+    }
+    return undefined as T;
   }
 
   // ===== Resolvers =====

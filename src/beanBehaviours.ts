@@ -12,7 +12,7 @@ export const CAUTIOUS = 'CAUTIOUS';
  */
 export const EAGER = 'EAGER';
 /**
- * EAGER behaviour indicates that the bean should instance only when requested.
+ * LAZY behaviour indicates that the bean should instance only when requested.
  * Will fail if not all the dependencies are present.
  */
 export const LAZY = 'LAZY';
