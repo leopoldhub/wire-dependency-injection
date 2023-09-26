@@ -1,9 +1,9 @@
 import DependencyInjectionError from '../DependencyInjectionError.js';
-import Bean from '../../Bean.js';
+import { Connector } from '../../types.js';
 
-export default class BeanError extends DependencyInjectionError {
+export default class ConnectorError extends DependencyInjectionError {
   public constructor(
-    public readonly bean: Bean,
+    public readonly connector: Connector,
     message?: string,
     options?: ErrorOptions
   ) {

@@ -1,13 +1,14 @@
 import Bean from '../../Bean.js';
 import BeanError from './BeanError.js';
 
-export default class BeanAlreadyInitialized extends BeanError {
-  public constructor(bean: Bean) {
+export default class BeanAlreadyInitializedError extends BeanError {
+  public constructor(bean: Bean, options?: ErrorOptions) {
     super(
-      [bean],
+      bean,
       `This bean has already been initialized: ${JSON.stringify(
         bean.identifier
-      )}`
+      )}`,
+      options
     );
   }
 }

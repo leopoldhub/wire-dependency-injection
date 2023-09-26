@@ -26,7 +26,7 @@
 <ul class="tsd-hierarchy">
 <li><span class="target">DependencyManager</span></li></ul></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/65e65cf/src/DependencyManager.ts#L32">src/DependencyManager.ts:32</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/58a6b0c/src/DependencyManager.ts#L33">src/DependencyManager.ts:33</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -47,25 +47,35 @@
 </div></section>
 <section class="tsd-index-section">
 <h3 class="tsd-index-heading">Methods</h3>
-<div class="tsd-index-list"><a href="DependencyManager.html#addListener" class="tsd-index-link tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>add<wbr/>Listener</span></a>
-<a href="DependencyManager.html#areInterDependent" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>are<wbr/>Inter<wbr/>Dependent</span></a>
+<div class="tsd-index-list"><a href="DependencyManager.html#_canBeanBeInitialized" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_can<wbr/>Bean<wbr/>Be<wbr/>Initialized</span></a>
+<a href="DependencyManager.html#_filterUniqueInterdependencyPaths" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_filter<wbr/>Unique<wbr/>Interdependency<wbr/>Paths</span></a>
+<a href="DependencyManager.html#_getBean" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_get<wbr/>Bean</span></a>
+<a href="DependencyManager.html#_getBeanIndex" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_get<wbr/>Bean<wbr/>Index</span></a>
+<a href="DependencyManager.html#_getBeanInterdependencyPaths" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_get<wbr/>Bean<wbr/>Interdependency<wbr/>Paths</span></a>
+<a href="DependencyManager.html#_getBeans" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_get<wbr/>Beans</span></a>
+<a href="DependencyManager.html#_getConnectorIndex" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_get<wbr/>Connector<wbr/>Index</span></a>
+<a href="DependencyManager.html#_getReadyBean" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_get<wbr/>Ready<wbr/>Bean</span></a>
+<a href="DependencyManager.html#_getReadyBeans" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_get<wbr/>Ready<wbr/>Beans</span></a>
+<a href="DependencyManager.html#_getUnreadyBean" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_get<wbr/>Unready<wbr/>Bean</span></a>
+<a href="DependencyManager.html#_getUnreadyBeans" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_get<wbr/>Unready<wbr/>Beans</span></a>
+<a href="DependencyManager.html#_haveBean" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_have<wbr/>Bean</span></a>
+<a href="DependencyManager.html#_initializeBean" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_initialize<wbr/>Bean</span></a>
+<a href="DependencyManager.html#_registerBean" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_register<wbr/>Bean</span></a>
+<a href="DependencyManager.html#_removeBean" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_remove<wbr/>Bean</span></a>
+<a href="DependencyManager.html#_removeBeans" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_remove<wbr/>Beans</span></a>
+<a href="DependencyManager.html#_removeConnector" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_remove<wbr/>Connector</span></a>
+<a href="DependencyManager.html#_resolveBeanInterDependencies" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_resolve<wbr/>Bean<wbr/>Inter<wbr/>Dependencies</span></a>
+<a href="DependencyManager.html#_resolveBeans" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_resolve<wbr/>Beans</span></a>
+<a href="DependencyManager.html#_resolveConnectors" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_resolve<wbr/>Connectors</span></a>
+<a href="DependencyManager.html#_wire" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_wire</span></a>
+<a href="DependencyManager.html#_wireMultipleBeans" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_wire<wbr/>Multiple<wbr/>Beans</span></a>
+<a href="DependencyManager.html#_wireSingleBean" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_wire<wbr/>Single<wbr/>Bean</span></a>
+<a href="DependencyManager.html#addListener" class="tsd-index-link tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>add<wbr/>Listener</span></a>
 <a href="DependencyManager.html#autoWire" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>auto<wbr/>Wire</span></a>
-<a href="DependencyManager.html#canBeanBeInitialized" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>can<wbr/>Bean<wbr/>Be<wbr/>Initialized</span></a>
 <a href="DependencyManager.html#declare" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>declare</span></a>
 <a href="DependencyManager.html#emit" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>emit</span></a>
 <a href="DependencyManager.html#eventNames" class="tsd-index-link tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>event<wbr/>Names</span></a>
-<a href="DependencyManager.html#getBean" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Bean</span></a>
-<a href="DependencyManager.html#getBeanIndex" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Bean<wbr/>Index</span></a>
-<a href="DependencyManager.html#getBeans" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Beans</span></a>
-<a href="DependencyManager.html#getConnectorIndex" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Connector<wbr/>Index</span></a>
-<a href="DependencyManager.html#getInterDependentCouples" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Inter<wbr/>Dependent<wbr/>Couples</span></a>
 <a href="DependencyManager.html#getMaxListeners" class="tsd-index-link tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Max<wbr/>Listeners</span></a>
-<a href="DependencyManager.html#getReadyBean" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Ready<wbr/>Bean</span></a>
-<a href="DependencyManager.html#getReadyBeans" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Ready<wbr/>Beans</span></a>
-<a href="DependencyManager.html#getUnreadyBean" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Unready<wbr/>Bean</span></a>
-<a href="DependencyManager.html#getUnreadyBeans" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Unready<wbr/>Beans</span></a>
-<a href="DependencyManager.html#haveBean" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>have<wbr/>Bean</span></a>
-<a href="DependencyManager.html#initializeBean" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>initialize<wbr/>Bean</span></a>
 <a href="DependencyManager.html#instance" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>instance</span></a>
 <a href="DependencyManager.html#listenerCount" class="tsd-index-link tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>listener<wbr/>Count</span></a>
 <a href="DependencyManager.html#listeners" class="tsd-index-link tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>listeners</span></a>
@@ -75,20 +85,11 @@
 <a href="DependencyManager.html#prependListener" class="tsd-index-link tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>prepend<wbr/>Listener</span></a>
 <a href="DependencyManager.html#prependOnceListener" class="tsd-index-link tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>prepend<wbr/>Once<wbr/>Listener</span></a>
 <a href="DependencyManager.html#rawListeners" class="tsd-index-link tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>raw<wbr/>Listeners</span></a>
-<a href="DependencyManager.html#registerBean" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>register<wbr/>Bean</span></a>
 <a href="DependencyManager.html#removeAllListeners" class="tsd-index-link tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>remove<wbr/>All<wbr/>Listeners</span></a>
-<a href="DependencyManager.html#removeBean" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>remove<wbr/>Bean</span></a>
-<a href="DependencyManager.html#removeBeans" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>remove<wbr/>Beans</span></a>
-<a href="DependencyManager.html#removeConnector" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>remove<wbr/>Connector</span></a>
+<a href="DependencyManager.html#removeDefaultErrorHandler" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>remove<wbr/>Default<wbr/>Error<wbr/>Handler</span></a>
 <a href="DependencyManager.html#removeListener" class="tsd-index-link tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>remove<wbr/>Listener</span></a>
-<a href="DependencyManager.html#resolveBeans" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>resolve<wbr/>Beans</span></a>
-<a href="DependencyManager.html#resolveConnectors" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>resolve<wbr/>Connectors</span></a>
-<a href="DependencyManager.html#resolveInterDependencies" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>resolve<wbr/>Inter<wbr/>Dependencies</span></a>
-<a href="DependencyManager.html#resolveSelfDependencies" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>resolve<wbr/>Self<wbr/>Dependencies</span></a>
 <a href="DependencyManager.html#setMaxListeners" class="tsd-index-link tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>set<wbr/>Max<wbr/>Listeners</span></a>
 <a href="DependencyManager.html#wire" class="tsd-index-link"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>wire</span></a>
-<a href="DependencyManager.html#wireMultipleBeans" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>wire<wbr/>Multiple<wbr/>Beans</span></a>
-<a href="DependencyManager.html#wireSingleBean" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>wire<wbr/>Single<wbr/>Bean</span></a>
 <a href="DependencyManager.html#getEventListeners" class="tsd-index-link tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Event<wbr/>Listeners</span></a>
 <a href="DependencyManager.html#listenerCount-2" class="tsd-index-link deprecated tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>listener<wbr/>Count</span></a>
 <a href="DependencyManager.html#on-2" class="tsd-index-link tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>on</span></a>
@@ -105,19 +106,19 @@
 <h4 class="tsd-returns-title">Returns <a href="DependencyManager.html" class="tsd-signature-type tsd-kind-class">DependencyManager</a></h4><aside class="tsd-sources">
 <p>Overrides EventEmitter.constructor</p>
 <ul>
-<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/65e65cf/src/DependencyManager.ts#L36">src/DependencyManager.ts:36</a></li></ul></aside></li></ul></section></section>
+<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/58a6b0c/src/DependencyManager.ts#L37">src/DependencyManager.ts:37</a></li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Properties</h2>
 <section class="tsd-panel tsd-member tsd-is-private"><a id="_beans" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <code class="tsd-tag ts-flagReadonly">Readonly</code> <span>_beans</span><a href="#_beans" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">_beans</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type ">default</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/65e65cf/src/DependencyManager.ts#L33">src/DependencyManager.ts:33</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/58a6b0c/src/DependencyManager.ts#L34">src/DependencyManager.ts:34</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-is-private"><a id="_connectors" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <code class="tsd-tag ts-flagReadonly">Readonly</code> <span>_connectors</span><a href="#_connectors" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">_connectors</span><span class="tsd-signature-symbol">:</span> <a href="../types/Connector.html" class="tsd-signature-type tsd-kind-type-alias">Connector</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/65e65cf/src/DependencyManager.ts#L34">src/DependencyManager.ts:34</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/58a6b0c/src/DependencyManager.ts#L35">src/DependencyManager.ts:35</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"><a id="captureRejectionSymbol" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <code class="tsd-tag ts-flagReadonly">Readonly</code> <span>capture<wbr/>Rejection<wbr/>Symbol</span><a href="#captureRejectionSymbol" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">capture<wbr/>Rejection<wbr/>Symbol</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">typeof </span><a href="DependencyManager.html#captureRejectionSymbol" class="tsd-signature-type tsd-kind-property">captureRejectionSymbol</a></div>
@@ -188,6 +189,424 @@ regular <code>&#39;error&#39;</code> listener is installed.</p>
 <li>Defined in node_modules/@types/node/events.d.ts:319</li></ul></aside></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Methods</h2>
+<section class="tsd-panel tsd-member tsd-is-private"><a id="_canBeanBeInitialized" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_can<wbr/>Bean<wbr/>Be<wbr/>Initialized</span><a href="#_canBeanBeInitialized" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-is-private">
+<li class="tsd-signature tsd-anchor-link" id="_canBeanBeInitialized._canBeanBeInitialized-1"><span class="tsd-kind-call-signature">_can<wbr/>Bean<wbr/>Be<wbr/>Initialized</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">bean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><a href="#_canBeanBeInitialized._canBeanBeInitialized-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">bean</span>: <span class="tsd-signature-type ">default</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/58a6b0c/src/DependencyManager.ts#L116">src/DependencyManager.ts:116</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-is-private"><a id="_filterUniqueInterdependencyPaths" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_filter<wbr/>Unique<wbr/>Interdependency<wbr/>Paths</span><a href="#_filterUniqueInterdependencyPaths" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-is-private">
+<li class="tsd-signature tsd-anchor-link" id="_filterUniqueInterdependencyPaths._filterUniqueInterdependencyPaths-1"><span class="tsd-kind-call-signature">_filter<wbr/>Unique<wbr/>Interdependency<wbr/>Paths</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">interdependencyPaths</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">default</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><a href="#_filterUniqueInterdependencyPaths._filterUniqueInterdependencyPaths-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description"><code class="tsd-tag ts-flagPrivate">Private</code> 
+<div class="tsd-comment tsd-typography"><p>Filters the dependency paths by unique path boundaries.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">interdependencyPaths</span>: <span class="tsd-signature-type ">default</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span></h5>
+<div class="tsd-comment tsd-typography"></div></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">default</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span></h4>
+<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/58a6b0c/src/DependencyManager.ts#L320">src/DependencyManager.ts:320</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-is-private"><a id="_getBean" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_get<wbr/>Bean</span><a href="#_getBean" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-is-private">
+<li class="tsd-signature tsd-anchor-link" id="_getBean._getBean-1"><span class="tsd-kind-call-signature">_get<wbr/>Bean</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">search</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type ">default</span><a href="#_getBean._getBean-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">search</span>: <a href="../types/BeanSearch.html" class="tsd-signature-type tsd-kind-type-alias">BeanSearch</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type ">default</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/58a6b0c/src/DependencyManager.ts#L494">src/DependencyManager.ts:494</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-is-private"><a id="_getBeanIndex" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_get<wbr/>Bean<wbr/>Index</span><a href="#_getBeanIndex" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-is-private">
+<li class="tsd-signature tsd-anchor-link" id="_getBeanIndex._getBeanIndex-1"><span class="tsd-kind-call-signature">_get<wbr/>Bean<wbr/>Index</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">bean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><a href="#_getBeanIndex._getBeanIndex-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">bean</span>: <span class="tsd-signature-type ">default</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/58a6b0c/src/DependencyManager.ts#L504">src/DependencyManager.ts:504</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-is-private"><a id="_getBeanInterdependencyPaths" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_get<wbr/>Bean<wbr/>Interdependency<wbr/>Paths</span><a href="#_getBeanInterdependencyPaths" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-is-private">
+<li class="tsd-signature tsd-anchor-link" id="_getBeanInterdependencyPaths._getBeanInterdependencyPaths-1"><span class="tsd-kind-call-signature">_get<wbr/>Bean<wbr/>Interdependency<wbr/>Paths</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">bean</span>, <span class="tsd-kind-parameter">parentBeans</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">default</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><a href="#_getBeanInterdependencyPaths._getBeanInterdependencyPaths-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">bean</span>: <span class="tsd-signature-type ">default</span></h5></li>
+<li>
+<h5><span class="tsd-kind-parameter">parentBeans</span>: <span class="tsd-signature-type ">default</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">default</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/58a6b0c/src/DependencyManager.ts#L340">src/DependencyManager.ts:340</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-is-private"><a id="_getBeans" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_get<wbr/>Beans</span><a href="#_getBeans" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-is-private">
+<li class="tsd-signature tsd-anchor-link" id="_getBeans._getBeans-1"><span class="tsd-kind-call-signature">_get<wbr/>Beans</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">category</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">default</span><span class="tsd-signature-symbol">[]</span><a href="#_getBeans._getBeans-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> <span class="tsd-kind-parameter">category</span>: <a href="../types/BeanCategory.html" class="tsd-signature-type tsd-kind-type-alias">BeanCategory</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">default</span><span class="tsd-signature-symbol">[]</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/58a6b0c/src/DependencyManager.ts#L490">src/DependencyManager.ts:490</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-is-private"><a id="_getConnectorIndex" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_get<wbr/>Connector<wbr/>Index</span><a href="#_getConnectorIndex" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-is-private">
+<li class="tsd-signature tsd-anchor-link" id="_getConnectorIndex._getConnectorIndex-1"><span class="tsd-kind-call-signature">_get<wbr/>Connector<wbr/>Index</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">connector</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><a href="#_getConnectorIndex._getConnectorIndex-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">connector</span>: <a href="../types/Connector.html" class="tsd-signature-type tsd-kind-type-alias">Connector</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/58a6b0c/src/DependencyManager.ts#L516">src/DependencyManager.ts:516</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-is-private"><a id="_getReadyBean" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_get<wbr/>Ready<wbr/>Bean</span><a href="#_getReadyBean" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-is-private">
+<li class="tsd-signature tsd-anchor-link" id="_getReadyBean._getReadyBean-1"><span class="tsd-kind-call-signature">_get<wbr/>Ready<wbr/>Bean</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">search</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type ">default</span><a href="#_getReadyBean._getReadyBean-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">search</span>: <a href="../types/BeanSearch.html" class="tsd-signature-type tsd-kind-type-alias">BeanSearch</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type ">default</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/58a6b0c/src/DependencyManager.ts#L472">src/DependencyManager.ts:472</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-is-private"><a id="_getReadyBeans" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_get<wbr/>Ready<wbr/>Beans</span><a href="#_getReadyBeans" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-is-private">
+<li class="tsd-signature tsd-anchor-link" id="_getReadyBeans._getReadyBeans-1"><span class="tsd-kind-call-signature">_get<wbr/>Ready<wbr/>Beans</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">category</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">default</span><span class="tsd-signature-symbol">[]</span><a href="#_getReadyBeans._getReadyBeans-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> <span class="tsd-kind-parameter">category</span>: <a href="../types/BeanCategory.html" class="tsd-signature-type tsd-kind-type-alias">BeanCategory</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">default</span><span class="tsd-signature-symbol">[]</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/58a6b0c/src/DependencyManager.ts#L466">src/DependencyManager.ts:466</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-is-private"><a id="_getUnreadyBean" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_get<wbr/>Unready<wbr/>Bean</span><a href="#_getUnreadyBean" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-is-private">
+<li class="tsd-signature tsd-anchor-link" id="_getUnreadyBean._getUnreadyBean-1"><span class="tsd-kind-call-signature">_get<wbr/>Unready<wbr/>Bean</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">search</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type ">default</span><a href="#_getUnreadyBean._getUnreadyBean-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">search</span>: <a href="../types/BeanSearch.html" class="tsd-signature-type tsd-kind-type-alias">BeanSearch</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type ">default</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/58a6b0c/src/DependencyManager.ts#L484">src/DependencyManager.ts:484</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-is-private"><a id="_getUnreadyBeans" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_get<wbr/>Unready<wbr/>Beans</span><a href="#_getUnreadyBeans" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-is-private">
+<li class="tsd-signature tsd-anchor-link" id="_getUnreadyBeans._getUnreadyBeans-1"><span class="tsd-kind-call-signature">_get<wbr/>Unready<wbr/>Beans</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">category</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">default</span><span class="tsd-signature-symbol">[]</span><a href="#_getUnreadyBeans._getUnreadyBeans-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><code class="tsd-tag ts-flagOptional">Optional</code> <span class="tsd-kind-parameter">category</span>: <a href="../types/BeanCategory.html" class="tsd-signature-type tsd-kind-type-alias">BeanCategory</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">default</span><span class="tsd-signature-symbol">[]</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/58a6b0c/src/DependencyManager.ts#L478">src/DependencyManager.ts:478</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-is-private"><a id="_haveBean" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_have<wbr/>Bean</span><a href="#_haveBean" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-is-private">
+<li class="tsd-signature tsd-anchor-link" id="_haveBean._haveBean-1"><span class="tsd-kind-call-signature">_have<wbr/>Bean</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">search</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><a href="#_haveBean._haveBean-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">search</span>: <a href="../types/BeanSearch.html" class="tsd-signature-type tsd-kind-type-alias">BeanSearch</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/58a6b0c/src/DependencyManager.ts#L500">src/DependencyManager.ts:500</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-is-private"><a id="_initializeBean" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_initialize<wbr/>Bean</span><a href="#_initializeBean" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-is-private">
+<li class="tsd-signature tsd-anchor-link" id="_initializeBean._initializeBean-1"><span class="tsd-kind-call-signature">_initialize<wbr/>Bean</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">bean</span>, <span class="tsd-kind-parameter">parents</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><a href="#_initializeBean._initializeBean-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description"><code class="tsd-tag ts-flagPrivate">Private</code> 
+<div class="tsd-comment tsd-typography"><p>Initializes a bean.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">bean</span>: <span class="tsd-signature-type ">default</span></h5>
+<div class="tsd-comment tsd-typography"></div></li>
+<li>
+<h5><span class="tsd-kind-parameter">parents</span>: <span class="tsd-signature-type ">default</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></h5>
+<div class="tsd-comment tsd-typography"></div></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+<div class="tsd-comment tsd-typography">
+<h4>Throws</h4><p>BeanNotFoundError</p>
+
+<h4>Throws</h4><p>BeanNotReadyError</p>
+
+<h4>Throws</h4><p>BeanAlreadyInitializedError</p>
+
+<h4>Throws</h4><p>BeanInitializerNotInstantiableError</p>
+
+<h4>Throws</h4><p>BeanInitializationError</p>
+
+<h4>Emits</h4><p>&#39;error&#39; BeanNotFoundError</p>
+
+<h4>Emits</h4><p>&#39;error&#39; BeanNotReadyError</p>
+
+<h4>Emits</h4><p>&#39;error&#39; BeanAlreadyInitializedError</p>
+
+<h4>Emits</h4><p>&#39;error&#39; BeanInitializerNotInstantiableError</p>
+
+<h4>Emits</h4><p>&#39;error&#39; BeanInitializationError</p>
+</div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/58a6b0c/src/DependencyManager.ts#L149">src/DependencyManager.ts:149</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-is-private"><a id="_registerBean" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_register<wbr/>Bean</span><a href="#_registerBean" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-is-private">
+<li class="tsd-signature tsd-anchor-link" id="_registerBean._registerBean-1"><span class="tsd-kind-call-signature">_register<wbr/>Bean</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">bean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><a href="#_registerBean._registerBean-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description"><code class="tsd-tag ts-flagPrivate">Private</code> 
+<div class="tsd-comment tsd-typography"><p>Registers a bean.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">bean</span>: <span class="tsd-signature-type ">default</span></h5>
+<div class="tsd-comment tsd-typography"></div></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+<div class="tsd-comment tsd-typography">
+<h4>Throws</h4><p>IdentifierAlreadyExistsError</p>
+
+<h4>Throws</h4><p>BeanMissingInitializerError</p>
+
+<h4>Throws</h4><p>SelfDependencyError</p>
+
+<h4>Throws</h4><p>InterDependencyError</p>
+
+<h4>Emits</h4><p>&#39;error&#39; ConnectorCallbackError</p>
+</div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/58a6b0c/src/DependencyManager.ts#L52">src/DependencyManager.ts:52</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-is-private"><a id="_removeBean" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_remove<wbr/>Bean</span><a href="#_removeBean" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-is-private">
+<li class="tsd-signature tsd-anchor-link" id="_removeBean._removeBean-1"><span class="tsd-kind-call-signature">_remove<wbr/>Bean</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">bean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><a href="#_removeBean._removeBean-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">bean</span>: <span class="tsd-signature-type ">default</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/58a6b0c/src/DependencyManager.ts#L512">src/DependencyManager.ts:512</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-is-private"><a id="_removeBeans" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_remove<wbr/>Beans</span><a href="#_removeBeans" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-is-private">
+<li class="tsd-signature tsd-anchor-link" id="_removeBeans._removeBeans-1"><span class="tsd-kind-call-signature">_remove<wbr/>Beans</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">beans</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><a href="#_removeBeans._removeBeans-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">beans</span>: <span class="tsd-signature-type ">default</span><span class="tsd-signature-symbol">[]</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/58a6b0c/src/DependencyManager.ts#L508">src/DependencyManager.ts:508</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-is-private"><a id="_removeConnector" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_remove<wbr/>Connector</span><a href="#_removeConnector" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-is-private">
+<li class="tsd-signature tsd-anchor-link" id="_removeConnector._removeConnector-1"><span class="tsd-kind-call-signature">_remove<wbr/>Connector</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">connector</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><a href="#_removeConnector._removeConnector-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description">
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">connector</span>: <a href="../types/Connector.html" class="tsd-signature-type tsd-kind-type-alias">Connector</a></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/58a6b0c/src/DependencyManager.ts#L520">src/DependencyManager.ts:520</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-is-private"><a id="_resolveBeanInterDependencies" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_resolve<wbr/>Bean<wbr/>Inter<wbr/>Dependencies</span><a href="#_resolveBeanInterDependencies" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-is-private">
+<li class="tsd-signature tsd-anchor-link" id="_resolveBeanInterDependencies._resolveBeanInterDependencies-1"><span class="tsd-kind-call-signature">_resolve<wbr/>Bean<wbr/>Inter<wbr/>Dependencies</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">bean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><a href="#_resolveBeanInterDependencies._resolveBeanInterDependencies-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description"><code class="tsd-tag ts-flagPrivate">Private</code> 
+<div class="tsd-comment tsd-typography"><p>Resolves the bean interdependencies.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">bean</span>: <span class="tsd-signature-type ">default</span></h5>
+<div class="tsd-comment tsd-typography"></div></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+<div class="tsd-comment tsd-typography">
+<h4>Throws</h4><p>SelfDependencyError</p>
+
+<h4>Throws</h4><p>InterDependencyError</p>
+</div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/58a6b0c/src/DependencyManager.ts#L304">src/DependencyManager.ts:304</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-is-private"><a id="_resolveBeans" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_resolve<wbr/>Beans</span><a href="#_resolveBeans" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-is-private">
+<li class="tsd-signature tsd-anchor-link" id="_resolveBeans._resolveBeans-1"><span class="tsd-kind-call-signature">_resolve<wbr/>Beans</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><a href="#_resolveBeans._resolveBeans-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description"><code class="tsd-tag ts-flagPrivate">Private</code> 
+<div class="tsd-comment tsd-typography"><p>Resolves the registered beans.</p>
+</div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+<div class="tsd-comment tsd-typography">
+<h4>Emits</h4><p>&#39;error&#39; BeanNotFoundError</p>
+
+<h4>Emits</h4><p>&#39;error&#39; BeanNotReadyError</p>
+
+<h4>Emits</h4><p>&#39;error&#39; BeanAlreadyInitializedError</p>
+
+<h4>Emits</h4><p>&#39;error&#39; BeanInitializerNotInstantiableError</p>
+
+<h4>Emits</h4><p>&#39;error&#39; BeanInitializationError</p>
+</div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/58a6b0c/src/DependencyManager.ts#L375">src/DependencyManager.ts:375</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-is-private"><a id="_resolveConnectors" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_resolve<wbr/>Connectors</span><a href="#_resolveConnectors" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-is-private">
+<li class="tsd-signature tsd-anchor-link" id="_resolveConnectors._resolveConnectors-1"><span class="tsd-kind-call-signature">_resolve<wbr/>Connectors</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><a href="#_resolveConnectors._resolveConnectors-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description"><code class="tsd-tag ts-flagPrivate">Private</code> 
+<div class="tsd-comment tsd-typography"><p>Resolves connectors that meet the requirements, runs their callback, then removes them from the list.</p>
+</div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+<div class="tsd-comment tsd-typography">
+<h4>Emits</h4><p>&#39;error&#39; ConnectorCallbackError</p>
+</div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/58a6b0c/src/DependencyManager.ts#L404">src/DependencyManager.ts:404</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-is-private"><a id="_wire" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_wire</span><a href="#_wire" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-is-private">
+<li class="tsd-signature tsd-anchor-link" id="_wire._wire-1"><span class="tsd-kind-call-signature">_wire</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">search</span>, <span class="tsd-kind-parameter">parents</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><a href="#_wire._wire-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description"><code class="tsd-tag ts-flagPrivate">Private</code> 
+<div class="tsd-comment tsd-typography"><p>Returns one or multiple of the requested dependencies.</p>
+</div>
+<section class="tsd-panel">
+<h4>Type Parameters</h4>
+<ul class="tsd-type-parameter-list">
+<li>
+<h4><span class="tsd-kind-type-parameter">T</span> = <span class="tsd-signature-type">any</span></h4></li></ul></section>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">search</span>: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../types/BeanSearch.html" class="tsd-signature-type tsd-kind-type-alias">BeanSearch</a></h5>
+<div class="tsd-comment tsd-typography"></div></li>
+<li>
+<h5><span class="tsd-kind-parameter">parents</span>: <span class="tsd-signature-type ">default</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></h5>
+<div class="tsd-comment tsd-typography"></div></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type tsd-kind-type-parameter">T</span></h4>
+<div class="tsd-comment tsd-typography">
+<h4>Throws</h4><p>BeanNotReadyError</p>
+
+<h4>Throws</h4><p>BeanAlreadyInitializedError</p>
+
+<h4>Throws</h4><p>BeanInitializerNotInstantiableError</p>
+
+<h4>Throws</h4><p>BeanInitializationError</p>
+</div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/58a6b0c/src/DependencyManager.ts#L196">src/DependencyManager.ts:196</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-is-private"><a id="_wireMultipleBeans" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_wire<wbr/>Multiple<wbr/>Beans</span><a href="#_wireMultipleBeans" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-is-private">
+<li class="tsd-signature tsd-anchor-link" id="_wireMultipleBeans._wireMultipleBeans-1"><span class="tsd-kind-call-signature">_wire<wbr/>Multiple<wbr/>Beans</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">beanSearch</span>, <span class="tsd-kind-parameter">parents</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">default</span><span class="tsd-signature-symbol">[]</span><a href="#_wireMultipleBeans._wireMultipleBeans-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description"><code class="tsd-tag ts-flagPrivate">Private</code> 
+<div class="tsd-comment tsd-typography"><p>Returns the requested dependencies.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">beanSearch</span>: <a href="../types/BeanSearch.html" class="tsd-signature-type tsd-kind-type-alias">BeanSearch</a></h5>
+<div class="tsd-comment tsd-typography"><p>identifier, category and getFirst.</p>
+</div>
+<div class="tsd-comment tsd-typography"></div></li>
+<li>
+<h5><span class="tsd-kind-parameter">parents</span>: <span class="tsd-signature-type ">default</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></h5>
+<div class="tsd-comment tsd-typography"></div></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">default</span><span class="tsd-signature-symbol">[]</span></h4>
+<div class="tsd-comment tsd-typography">
+<h4>Emits</h4><p>&#39;error&#39; BeanNotFoundError</p>
+
+<h4>Emits</h4><p>&#39;error&#39; BeanNotReadyError</p>
+
+<h4>Emits</h4><p>&#39;error&#39; BeanAlreadyInitializedError</p>
+
+<h4>Emits</h4><p>&#39;error&#39; BeanInitializerNotInstantiableError</p>
+
+<h4>Emits</h4><p>&#39;error&#39; BeanInitializationError</p>
+</div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/58a6b0c/src/DependencyManager.ts#L248">src/DependencyManager.ts:248</a></li></ul></aside></li></ul></section>
+<section class="tsd-panel tsd-member tsd-is-private"><a id="_wireSingleBean" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>_wire<wbr/>Single<wbr/>Bean</span><a href="#_wireSingleBean" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures tsd-is-private">
+<li class="tsd-signature tsd-anchor-link" id="_wireSingleBean._wireSingleBean-1"><span class="tsd-kind-call-signature">_wire<wbr/>Single<wbr/>Bean</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">beanSearch</span>, <span class="tsd-kind-parameter">parents</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">default</span><a href="#_wireSingleBean._wireSingleBean-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-description"><code class="tsd-tag ts-flagPrivate">Private</code> 
+<div class="tsd-comment tsd-typography"><p>Returns the requested dependencies.</p>
+</div>
+<div class="tsd-parameters">
+<h4 class="tsd-parameters-title">Parameters</h4>
+<ul class="tsd-parameter-list">
+<li>
+<h5><span class="tsd-kind-parameter">beanSearch</span>: <a href="../types/BeanSearch.html" class="tsd-signature-type tsd-kind-type-alias">BeanSearch</a></h5>
+<div class="tsd-comment tsd-typography"></div></li>
+<li>
+<h5><span class="tsd-kind-parameter">parents</span>: <span class="tsd-signature-type ">default</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></h5>
+<div class="tsd-comment tsd-typography"></div></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">default</span></h4>
+<div class="tsd-comment tsd-typography">
+<h4>Throws</h4><p>BeanNotFoundError</p>
+
+<h4>Throws</h4><p>BeanNotReadyError</p>
+
+<h4>Throws</h4><p>BeanAlreadyInitializedError</p>
+
+<h4>Throws</h4><p>BeanInitializerNotInstantiableError</p>
+
+<h4>Throws</h4><p>BeanInitializationError</p>
+</div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/58a6b0c/src/DependencyManager.ts#L223">src/DependencyManager.ts:223</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"><a id="addListener" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>add<wbr/>Listener</span><a href="#addListener" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
@@ -220,26 +639,6 @@ regular <code>&#39;error&#39;</code> listener is installed.</p>
 <p>Inherited from EventEmitter.addListener</p>
 <ul>
 <li>Defined in node_modules/@types/node/events.d.ts:390</li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member tsd-is-private"><a id="areInterDependent" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>are<wbr/>Inter<wbr/>Dependent</span><a href="#areInterDependent" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<ul class="tsd-signatures tsd-is-private">
-<li class="tsd-signature tsd-anchor-link" id="areInterDependent.areInterDependent-1"><span class="tsd-kind-call-signature">are<wbr/>Inter<wbr/>Dependent</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">bean1</span>, <span class="tsd-kind-parameter">bean2</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><a href="#areInterDependent.areInterDependent-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
-<li class="tsd-description"><code class="tsd-tag ts-flagPrivate">Private</code> 
-<div class="tsd-comment tsd-typography"><p>Check whether beans dependencies are interlocking.</p>
-</div>
-<div class="tsd-parameters">
-<h4 class="tsd-parameters-title">Parameters</h4>
-<ul class="tsd-parameter-list">
-<li>
-<h5><span class="tsd-kind-parameter">bean1</span>: <span class="tsd-signature-type ">default</span></h5>
-<div class="tsd-comment tsd-typography"></div></li>
-<li>
-<h5><span class="tsd-kind-parameter">bean2</span>: <span class="tsd-signature-type ">default</span></h5>
-<div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/65e65cf/src/DependencyManager.ts#L384">src/DependencyManager.ts:384</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="autoWire" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>auto<wbr/>Wire</span><a href="#autoWire" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -257,32 +656,26 @@ regular <code>&#39;error&#39;</code> listener is installed.</p>
 <ul class="tsd-parameter-list">
 <li>
 <h5><span class="tsd-kind-parameter">search</span>: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../types/BeanSearch.html" class="tsd-signature-type tsd-kind-type-alias">BeanSearch</a></h5>
-<div class="tsd-comment tsd-typography"><p>identifier or identifier, category and getFirst
-(whether we should get the first one in case of multiple corresponding dependencies).</p>
-</div>
 <div class="tsd-comment tsd-typography"></div></li>
 <li>
 <h5><span class="tsd-kind-parameter">callback</span>: <a href="../types/ConnectorCallback.html" class="tsd-signature-type tsd-kind-type-alias">ConnectorCallback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
-<div class="tsd-comment tsd-typography"><p>function that accepts the dependency values as parameter.</p>
-</div>
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type tsd-kind-type-parameter">T</span></h4>
-<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
+<div class="tsd-comment tsd-typography">
+<h4>Emits</h4><p>&#39;error&#39; BeanNotFoundError</p>
+
+<h4>Emits</h4><p>&#39;error&#39; BeanNotReadyError</p>
+
+<h4>Emits</h4><p>&#39;error&#39; BeanAlreadyInitializedError</p>
+
+<h4>Emits</h4><p>&#39;error&#39; BeanInitializerNotInstantiableError</p>
+
+<h4>Emits</h4><p>&#39;error&#39; BeanInitializationError</p>
+
+<h4>Emits</h4><p>&#39;error&#39; ConnectorCallbackError</p>
+</div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/65e65cf/src/DependencyManager.ts#L311">src/DependencyManager.ts:311</a></li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member tsd-is-private"><a id="canBeanBeInitialized" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>can<wbr/>Bean<wbr/>Be<wbr/>Initialized</span><a href="#canBeanBeInitialized" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<ul class="tsd-signatures tsd-is-private">
-<li class="tsd-signature tsd-anchor-link" id="canBeanBeInitialized.canBeanBeInitialized-1"><span class="tsd-kind-call-signature">can<wbr/>Bean<wbr/>Be<wbr/>Initialized</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">bean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><a href="#canBeanBeInitialized.canBeanBeInitialized-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
-<li class="tsd-description">
-<div class="tsd-parameters">
-<h4 class="tsd-parameters-title">Parameters</h4>
-<ul class="tsd-parameter-list">
-<li>
-<h5><span class="tsd-kind-parameter">bean</span>: <span class="tsd-signature-type ">default</span></h5></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/65e65cf/src/DependencyManager.ts#L189">src/DependencyManager.ts:189</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/58a6b0c/src/DependencyManager.ts#L279">src/DependencyManager.ts:279</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="declare" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>declare</span><a href="#declare" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -304,10 +697,18 @@ regular <code>&#39;error&#39;</code> listener is installed.</p>
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 <div class="tsd-comment tsd-typography">
-<h4>Throws</h4><p>IdentifierAlreadyExistsError if the identifier is already in use.</p>
+<h4>Throws</h4><p>IdentifierAlreadyExistsError</p>
+
+<h4>Throws</h4><p>BeanMissingInitializerError</p>
+
+<h4>Throws</h4><p>SelfDependencyError</p>
+
+<h4>Throws</h4><p>InterDependencyError</p>
+
+<h4>Throws</h4><p>ConnectorCallbackError</p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/65e65cf/src/DependencyManager.ts#L151">src/DependencyManager.ts:151</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/58a6b0c/src/DependencyManager.ts#L77">src/DependencyManager.ts:77</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="emit" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>emit</span><a href="#emit" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -323,7 +724,7 @@ regular <code>&#39;error&#39;</code> listener is installed.</p>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4><aside class="tsd-sources">
 <p>Overrides EventEmitter.emit</p>
 <ul>
-<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/65e65cf/src/DependencyManager.ts#L457">src/DependencyManager.ts:457</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/58a6b0c/src/DependencyManager.ts#L456">src/DependencyManager.ts:456</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"><a id="eventNames" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>event<wbr/>Names</span><a href="#eventNames" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
@@ -341,81 +742,6 @@ listeners. The values in the array are strings or <code>Symbol</code>s.</p>
 <p>Inherited from EventEmitter.eventNames</p>
 <ul>
 <li>Defined in node_modules/@types/node/events.d.ts:715</li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member tsd-is-private"><a id="getBean" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>get<wbr/>Bean</span><a href="#getBean" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<ul class="tsd-signatures tsd-is-private">
-<li class="tsd-signature tsd-anchor-link" id="getBean.getBean-1"><span class="tsd-kind-call-signature">get<wbr/>Bean</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">search</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type ">default</span><a href="#getBean.getBean-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
-<li class="tsd-description"><code class="tsd-tag ts-flagPrivate">Private</code> 
-<div class="tsd-comment tsd-typography"><p>Returns bean by identifier and category if pr�cised.</p>
-</div>
-<div class="tsd-parameters">
-<h4 class="tsd-parameters-title">Parameters</h4>
-<ul class="tsd-parameter-list">
-<li>
-<h5><span class="tsd-kind-parameter">search</span>: <a href="../types/BeanSearch.html" class="tsd-signature-type tsd-kind-type-alias">BeanSearch</a></h5>
-<div class="tsd-comment tsd-typography"><p>identifier, category or both.</p>
-</div>
-<div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type ">default</span></h4>
-<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/65e65cf/src/DependencyManager.ts#L100">src/DependencyManager.ts:100</a></li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member tsd-is-private"><a id="getBeanIndex" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>get<wbr/>Bean<wbr/>Index</span><a href="#getBeanIndex" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<ul class="tsd-signatures tsd-is-private">
-<li class="tsd-signature tsd-anchor-link" id="getBeanIndex.getBeanIndex-1"><span class="tsd-kind-call-signature">get<wbr/>Bean<wbr/>Index</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">bean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><a href="#getBeanIndex.getBeanIndex-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
-<li class="tsd-description">
-<div class="tsd-parameters">
-<h4 class="tsd-parameters-title">Parameters</h4>
-<ul class="tsd-parameter-list">
-<li>
-<h5><span class="tsd-kind-parameter">bean</span>: <span class="tsd-signature-type ">default</span></h5></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/65e65cf/src/DependencyManager.ts#L110">src/DependencyManager.ts:110</a></li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member tsd-is-private"><a id="getBeans" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>get<wbr/>Beans</span><a href="#getBeans" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<ul class="tsd-signatures tsd-is-private">
-<li class="tsd-signature tsd-anchor-link" id="getBeans.getBeans-1"><span class="tsd-kind-call-signature">get<wbr/>Beans</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">category</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">default</span><span class="tsd-signature-symbol">[]</span><a href="#getBeans.getBeans-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
-<li class="tsd-description"><code class="tsd-tag ts-flagPrivate">Private</code> 
-<div class="tsd-comment tsd-typography"><p>Returns all beans, filtered by category if pr�cised.</p>
-</div>
-<div class="tsd-parameters">
-<h4 class="tsd-parameters-title">Parameters</h4>
-<ul class="tsd-parameter-list">
-<li>
-<h5><code class="tsd-tag ts-flagOptional">Optional</code> <span class="tsd-kind-parameter">category</span>: <a href="../types/BeanCategory.html" class="tsd-signature-type tsd-kind-type-alias">BeanCategory</a></h5>
-<div class="tsd-comment tsd-typography"><p>filter.</p>
-</div>
-<div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">default</span><span class="tsd-signature-symbol">[]</span></h4>
-<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/65e65cf/src/DependencyManager.ts#L91">src/DependencyManager.ts:91</a></li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member tsd-is-private"><a id="getConnectorIndex" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>get<wbr/>Connector<wbr/>Index</span><a href="#getConnectorIndex" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<ul class="tsd-signatures tsd-is-private">
-<li class="tsd-signature tsd-anchor-link" id="getConnectorIndex.getConnectorIndex-1"><span class="tsd-kind-call-signature">get<wbr/>Connector<wbr/>Index</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">connector</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><a href="#getConnectorIndex.getConnectorIndex-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
-<li class="tsd-description">
-<div class="tsd-parameters">
-<h4 class="tsd-parameters-title">Parameters</h4>
-<ul class="tsd-parameter-list">
-<li>
-<h5><span class="tsd-kind-parameter">connector</span>: <a href="../types/Connector.html" class="tsd-signature-type tsd-kind-type-alias">Connector</a></h5></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/65e65cf/src/DependencyManager.ts#L122">src/DependencyManager.ts:122</a></li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member tsd-is-private"><a id="getInterDependentCouples" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>get<wbr/>Inter<wbr/>Dependent<wbr/>Couples</span><a href="#getInterDependentCouples" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<ul class="tsd-signatures tsd-is-private">
-<li class="tsd-signature tsd-anchor-link" id="getInterDependentCouples.getInterDependentCouples-1"><span class="tsd-kind-call-signature">get<wbr/>Inter<wbr/>Dependent<wbr/>Couples</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../types/Couple.html" class="tsd-signature-type tsd-kind-type-alias">Couple</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type ">default</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span><a href="#getInterDependentCouples.getInterDependentCouples-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
-<li class="tsd-description"><code class="tsd-tag ts-flagPrivate">Private</code> 
-<div class="tsd-comment tsd-typography"><p>Returns unique couples of interlocking dependencies in the unready dependencies.</p>
-</div>
-<h4 class="tsd-returns-title">Returns <a href="../types/Couple.html" class="tsd-signature-type tsd-kind-type-alias">Couple</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type ">default</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">[]</span></h4>
-<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/65e65cf/src/DependencyManager.ts#L359">src/DependencyManager.ts:359</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"><a id="getMaxListeners" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>get<wbr/>Max<wbr/>Listeners</span><a href="#getMaxListeners" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
@@ -431,121 +757,6 @@ set by <code>emitter.setMaxListeners(n)</code> or defaults to <a href="Dependenc
 <p>Inherited from EventEmitter.getMaxListeners</p>
 <ul>
 <li>Defined in node_modules/@types/node/events.d.ts:567</li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member tsd-is-private"><a id="getReadyBean" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>get<wbr/>Ready<wbr/>Bean</span><a href="#getReadyBean" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<ul class="tsd-signatures tsd-is-private">
-<li class="tsd-signature tsd-anchor-link" id="getReadyBean.getReadyBean-1"><span class="tsd-kind-call-signature">get<wbr/>Ready<wbr/>Bean</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">search</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type ">default</span><a href="#getReadyBean.getReadyBean-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
-<li class="tsd-description"><code class="tsd-tag ts-flagPrivate">Private</code> 
-<div class="tsd-comment tsd-typography"><p>Returns bean with ready state by identifier and category if pr�cised.</p>
-</div>
-<div class="tsd-parameters">
-<h4 class="tsd-parameters-title">Parameters</h4>
-<ul class="tsd-parameter-list">
-<li>
-<h5><span class="tsd-kind-parameter">search</span>: <a href="../types/BeanSearch.html" class="tsd-signature-type tsd-kind-type-alias">BeanSearch</a></h5>
-<div class="tsd-comment tsd-typography"><p>identifier, category or both.</p>
-</div>
-<div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type ">default</span></h4>
-<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/65e65cf/src/DependencyManager.ts#L58">src/DependencyManager.ts:58</a></li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member tsd-is-private"><a id="getReadyBeans" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>get<wbr/>Ready<wbr/>Beans</span><a href="#getReadyBeans" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<ul class="tsd-signatures tsd-is-private">
-<li class="tsd-signature tsd-anchor-link" id="getReadyBeans.getReadyBeans-1"><span class="tsd-kind-call-signature">get<wbr/>Ready<wbr/>Beans</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">category</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">default</span><span class="tsd-signature-symbol">[]</span><a href="#getReadyBeans.getReadyBeans-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
-<li class="tsd-description"><code class="tsd-tag ts-flagPrivate">Private</code> 
-<div class="tsd-comment tsd-typography"><p>Returns beans with ready state, filtered by category if pr�cised.</p>
-</div>
-<div class="tsd-parameters">
-<h4 class="tsd-parameters-title">Parameters</h4>
-<ul class="tsd-parameter-list">
-<li>
-<h5><code class="tsd-tag ts-flagOptional">Optional</code> <span class="tsd-kind-parameter">category</span>: <a href="../types/BeanCategory.html" class="tsd-signature-type tsd-kind-type-alias">BeanCategory</a></h5>
-<div class="tsd-comment tsd-typography"><p>filter.</p>
-</div>
-<div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">default</span><span class="tsd-signature-symbol">[]</span></h4>
-<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/65e65cf/src/DependencyManager.ts#L47">src/DependencyManager.ts:47</a></li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member tsd-is-private"><a id="getUnreadyBean" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>get<wbr/>Unready<wbr/>Bean</span><a href="#getUnreadyBean" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<ul class="tsd-signatures tsd-is-private">
-<li class="tsd-signature tsd-anchor-link" id="getUnreadyBean.getUnreadyBean-1"><span class="tsd-kind-call-signature">get<wbr/>Unready<wbr/>Bean</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">search</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type ">default</span><a href="#getUnreadyBean.getUnreadyBean-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
-<li class="tsd-description"><code class="tsd-tag ts-flagPrivate">Private</code> 
-<div class="tsd-comment tsd-typography"><p>Returns bean with unready state by identifier and category if pr�cised.</p>
-</div>
-<div class="tsd-parameters">
-<h4 class="tsd-parameters-title">Parameters</h4>
-<ul class="tsd-parameter-list">
-<li>
-<h5><span class="tsd-kind-parameter">search</span>: <a href="../types/BeanSearch.html" class="tsd-signature-type tsd-kind-type-alias">BeanSearch</a></h5>
-<div class="tsd-comment tsd-typography"><p>identifier, category or both.</p>
-</div>
-<div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type ">default</span></h4>
-<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/65e65cf/src/DependencyManager.ts#L80">src/DependencyManager.ts:80</a></li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member tsd-is-private"><a id="getUnreadyBeans" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>get<wbr/>Unready<wbr/>Beans</span><a href="#getUnreadyBeans" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<ul class="tsd-signatures tsd-is-private">
-<li class="tsd-signature tsd-anchor-link" id="getUnreadyBeans.getUnreadyBeans-1"><span class="tsd-kind-call-signature">get<wbr/>Unready<wbr/>Beans</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">category</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">default</span><span class="tsd-signature-symbol">[]</span><a href="#getUnreadyBeans.getUnreadyBeans-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
-<li class="tsd-description"><code class="tsd-tag ts-flagPrivate">Private</code> 
-<div class="tsd-comment tsd-typography"><p>Returns beans with unready state, filtered by category if pr�cised.</p>
-</div>
-<div class="tsd-parameters">
-<h4 class="tsd-parameters-title">Parameters</h4>
-<ul class="tsd-parameter-list">
-<li>
-<h5><code class="tsd-tag ts-flagOptional">Optional</code> <span class="tsd-kind-parameter">category</span>: <a href="../types/BeanCategory.html" class="tsd-signature-type tsd-kind-type-alias">BeanCategory</a></h5>
-<div class="tsd-comment tsd-typography"><p>filter.</p>
-</div>
-<div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">default</span><span class="tsd-signature-symbol">[]</span></h4>
-<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/65e65cf/src/DependencyManager.ts#L69">src/DependencyManager.ts:69</a></li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member tsd-is-private"><a id="haveBean" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>have<wbr/>Bean</span><a href="#haveBean" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<ul class="tsd-signatures tsd-is-private">
-<li class="tsd-signature tsd-anchor-link" id="haveBean.haveBean-1"><span class="tsd-kind-call-signature">have<wbr/>Bean</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">search</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><a href="#haveBean.haveBean-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
-<li class="tsd-description">
-<div class="tsd-parameters">
-<h4 class="tsd-parameters-title">Parameters</h4>
-<ul class="tsd-parameter-list">
-<li>
-<h5><span class="tsd-kind-parameter">search</span>: <a href="../types/BeanSearch.html" class="tsd-signature-type tsd-kind-type-alias">BeanSearch</a></h5></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/65e65cf/src/DependencyManager.ts#L106">src/DependencyManager.ts:106</a></li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member tsd-is-private"><a id="initializeBean" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>initialize<wbr/>Bean</span><a href="#initializeBean" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<ul class="tsd-signatures tsd-is-private">
-<li class="tsd-signature tsd-anchor-link" id="initializeBean.initializeBean-1"><span class="tsd-kind-call-signature">initialize<wbr/>Bean</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">bean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><a href="#initializeBean.initializeBean-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
-<li class="tsd-description"><code class="tsd-tag ts-flagPrivate">Private</code> 
-<div class="tsd-comment tsd-typography"><p>Initializes a bean.
-Removes it if an error occurs.</p>
-</div>
-<div class="tsd-parameters">
-<h4 class="tsd-parameters-title">Parameters</h4>
-<ul class="tsd-parameter-list">
-<li>
-<h5><span class="tsd-kind-parameter">bean</span>: <span class="tsd-signature-type ">default</span></h5>
-<div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-<div class="tsd-comment tsd-typography">
-<h4>Throws</h4><p>MissingBeanInitializerError if the bean is missing an initializer.</p>
-
-<h4>Throws</h4><p>BeanNotReadyError if the bean isn&#39;t ready.</p>
-
-<h4>Throws</h4><p>BeanAlreadyInitialized if the bean is already initialized.</p>
-
-<h4>Throws</h4><p>BeanInitializerNotInstantiable if the bean initializer is neither a function nor a class.</p>
-</div><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/65e65cf/src/DependencyManager.ts#L210">src/DependencyManager.ts:210</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="instance" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>instance</span><a href="#instance" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -561,21 +772,24 @@ Removes it if an error occurs.</p>
 <div class="tsd-comment tsd-typography"></div></li>
 <li>
 <h5><span class="tsd-kind-parameter">initializer</span>: <a href="../types/BeanInitializer.html" class="tsd-signature-type tsd-kind-type-alias">BeanInitializer</a></h5>
-<div class="tsd-comment tsd-typography"><p>a function or class that needs to be initialized to get the final value.</p>
-</div>
 <div class="tsd-comment tsd-typography"></div></li>
 <li>
 <h5><span class="tsd-kind-parameter">options</span>: <a href="../types/InstanceParameters.html" class="tsd-signature-type tsd-kind-type-alias">InstanceParameters</a><span class="tsd-signature-symbol"> = {}</span></h5>
-<div class="tsd-comment tsd-typography"><p>category, behaviour (when the initializer needs to be instanced)
-and wires (selectors for the dependencies that needs to be passed on to the initializer, in correct order).</p>
-</div>
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 <div class="tsd-comment tsd-typography">
-<h4>Throws</h4><p>IdentifierAlreadyExistsError if the identifier is already in use.</p>
+<h4>Throws</h4><p>IdentifierAlreadyExistsError</p>
+
+<h4>Throws</h4><p>BeanMissingInitializerError</p>
+
+<h4>Throws</h4><p>SelfDependencyError</p>
+
+<h4>Throws</h4><p>InterDependencyError</p>
+
+<h4>Throws</h4><p>ConnectorCallbackError</p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/65e65cf/src/DependencyManager.ts#L174">src/DependencyManager.ts:174</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/58a6b0c/src/DependencyManager.ts#L102">src/DependencyManager.ts:102</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"><a id="listenerCount" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>listener<wbr/>Count</span><a href="#listenerCount" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
@@ -684,7 +898,7 @@ in the list of the listeners of the event.</p>
 <h4 class="tsd-returns-title">Returns <a href="DependencyManager.html" class="tsd-signature-type tsd-kind-class">DependencyManager</a></h4><aside class="tsd-sources">
 <p>Overrides EventEmitter.on</p>
 <ul>
-<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/65e65cf/src/DependencyManager.ts#L435">src/DependencyManager.ts:435</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/58a6b0c/src/DependencyManager.ts#L434">src/DependencyManager.ts:434</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="once" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>once</span><a href="#once" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -711,7 +925,7 @@ in the list of the listeners of the event.</p>
 <h4 class="tsd-returns-title">Returns <a href="DependencyManager.html" class="tsd-signature-type tsd-kind-class">DependencyManager</a></h4><aside class="tsd-sources">
 <p>Overrides EventEmitter.once</p>
 <ul>
-<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/65e65cf/src/DependencyManager.ts#L446">src/DependencyManager.ts:446</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/58a6b0c/src/DependencyManager.ts#L445">src/DependencyManager.ts:445</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"><a id="prependListener" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>prepend<wbr/>Listener</span><a href="#prependListener" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
@@ -820,25 +1034,6 @@ including any wrappers (such as those created by <code>.once()</code>).</p>
 <p>Inherited from EventEmitter.rawListeners</p>
 <ul>
 <li>Defined in node_modules/@types/node/events.d.ts:611</li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member tsd-is-private"><a id="registerBean" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>register<wbr/>Bean</span><a href="#registerBean" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<ul class="tsd-signatures tsd-is-private">
-<li class="tsd-signature tsd-anchor-link" id="registerBean.registerBean-1"><span class="tsd-kind-call-signature">register<wbr/>Bean</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">bean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><a href="#registerBean.registerBean-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
-<li class="tsd-description"><code class="tsd-tag ts-flagPrivate">Private</code> 
-<div class="tsd-comment tsd-typography"><p>Registers a bean.</p>
-</div>
-<div class="tsd-parameters">
-<h4 class="tsd-parameters-title">Parameters</h4>
-<ul class="tsd-parameter-list">
-<li>
-<h5><span class="tsd-kind-parameter">bean</span>: <span class="tsd-signature-type ">default</span></h5>
-<div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-<div class="tsd-comment tsd-typography">
-<h4>Throws</h4><p>IdentifierAlreadyExistsError if the identifier is already in use.</p>
-</div><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/65e65cf/src/DependencyManager.ts#L136">src/DependencyManager.ts:136</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"><a id="removeAllListeners" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>remove<wbr/>All<wbr/>Listeners</span><a href="#removeAllListeners" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
@@ -862,45 +1057,14 @@ component or module (e.g. sockets or file streams).</p>
 <p>Inherited from EventEmitter.removeAllListeners</p>
 <ul>
 <li>Defined in node_modules/@types/node/events.d.ts:551</li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member tsd-is-private"><a id="removeBean" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>remove<wbr/>Bean</span><a href="#removeBean" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<ul class="tsd-signatures tsd-is-private">
-<li class="tsd-signature tsd-anchor-link" id="removeBean.removeBean-1"><span class="tsd-kind-call-signature">remove<wbr/>Bean</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">bean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><a href="#removeBean.removeBean-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<section class="tsd-panel tsd-member"><a id="removeDefaultErrorHandler" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><span>remove<wbr/>Default<wbr/>Error<wbr/>Handler</span><a href="#removeDefaultErrorHandler" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<ul class="tsd-signatures">
+<li class="tsd-signature tsd-anchor-link" id="removeDefaultErrorHandler.removeDefaultErrorHandler-1"><span class="tsd-kind-call-signature">remove<wbr/>Default<wbr/>Error<wbr/>Handler</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><a href="#removeDefaultErrorHandler.removeDefaultErrorHandler-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
-<div class="tsd-parameters">
-<h4 class="tsd-parameters-title">Parameters</h4>
-<ul class="tsd-parameter-list">
-<li>
-<h5><span class="tsd-kind-parameter">bean</span>: <span class="tsd-signature-type ">default</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/65e65cf/src/DependencyManager.ts#L118">src/DependencyManager.ts:118</a></li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member tsd-is-private"><a id="removeBeans" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>remove<wbr/>Beans</span><a href="#removeBeans" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<ul class="tsd-signatures tsd-is-private">
-<li class="tsd-signature tsd-anchor-link" id="removeBeans.removeBeans-1"><span class="tsd-kind-call-signature">remove<wbr/>Beans</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">beans</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><a href="#removeBeans.removeBeans-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
-<li class="tsd-description">
-<div class="tsd-parameters">
-<h4 class="tsd-parameters-title">Parameters</h4>
-<ul class="tsd-parameter-list">
-<li>
-<h5><span class="tsd-kind-parameter">beans</span>: <span class="tsd-signature-type ">default</span><span class="tsd-signature-symbol">[]</span></h5></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/65e65cf/src/DependencyManager.ts#L114">src/DependencyManager.ts:114</a></li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member tsd-is-private"><a id="removeConnector" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>remove<wbr/>Connector</span><a href="#removeConnector" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<ul class="tsd-signatures tsd-is-private">
-<li class="tsd-signature tsd-anchor-link" id="removeConnector.removeConnector-1"><span class="tsd-kind-call-signature">remove<wbr/>Connector</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">connector</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><a href="#removeConnector.removeConnector-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
-<li class="tsd-description">
-<div class="tsd-parameters">
-<h4 class="tsd-parameters-title">Parameters</h4>
-<ul class="tsd-parameter-list">
-<li>
-<h5><span class="tsd-kind-parameter">connector</span>: <a href="../types/Connector.html" class="tsd-signature-type tsd-kind-type-alias">Connector</a></h5></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/65e65cf/src/DependencyManager.ts#L126">src/DependencyManager.ts:126</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/58a6b0c/src/DependencyManager.ts#L461">src/DependencyManager.ts:461</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"><a id="removeListener" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>remove<wbr/>Listener</span><a href="#removeListener" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
@@ -955,52 +1119,6 @@ recently added instance. In the example the <code>once(&#39;ping&#39;)</code>lis
 <p>Inherited from EventEmitter.removeListener</p>
 <ul>
 <li>Defined in node_modules/@types/node/events.d.ts:535</li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member tsd-is-private"><a id="resolveBeans" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>resolve<wbr/>Beans</span><a href="#resolveBeans" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<ul class="tsd-signatures tsd-is-private">
-<li class="tsd-signature tsd-anchor-link" id="resolveBeans.resolveBeans-1"><span class="tsd-kind-call-signature">resolve<wbr/>Beans</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><a href="#resolveBeans.resolveBeans-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
-<li class="tsd-description"><code class="tsd-tag ts-flagPrivate">Private</code> 
-<div class="tsd-comment tsd-typography"><p>Resolves the bean eventual problems, manage them according to their behaviours, then resolves corresponding connectors.</p>
-</div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/65e65cf/src/DependencyManager.ts#L395">src/DependencyManager.ts:395</a></li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member tsd-is-private"><a id="resolveConnectors" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>resolve<wbr/>Connectors</span><a href="#resolveConnectors" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<ul class="tsd-signatures tsd-is-private">
-<li class="tsd-signature tsd-anchor-link" id="resolveConnectors.resolveConnectors-1"><span class="tsd-kind-call-signature">resolve<wbr/>Connectors</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><a href="#resolveConnectors.resolveConnectors-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
-<li class="tsd-description"><code class="tsd-tag ts-flagPrivate">Private</code> 
-<div class="tsd-comment tsd-typography"><p>Resolves connectors that meet the requirements, runs their callback and removes them from the list.</p>
-</div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/65e65cf/src/DependencyManager.ts#L422">src/DependencyManager.ts:422</a></li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member tsd-is-private"><a id="resolveInterDependencies" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>resolve<wbr/>Inter<wbr/>Dependencies</span><a href="#resolveInterDependencies" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<ul class="tsd-signatures tsd-is-private">
-<li class="tsd-signature tsd-anchor-link" id="resolveInterDependencies.resolveInterDependencies-1"><span class="tsd-kind-call-signature">resolve<wbr/>Inter<wbr/>Dependencies</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><a href="#resolveInterDependencies.resolveInterDependencies-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
-<li class="tsd-description"><code class="tsd-tag ts-flagPrivate">Private</code> 
-<div class="tsd-comment tsd-typography"><p>Resolves interlocking dependencies in the unready dependencies.
-Emits a <strong>InterDependencyError</strong> in the error event and removes them when that is the case.</p>
-</div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/65e65cf/src/DependencyManager.ts#L348">src/DependencyManager.ts:348</a></li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member tsd-is-private"><a id="resolveSelfDependencies" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>resolve<wbr/>Self<wbr/>Dependencies</span><a href="#resolveSelfDependencies" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<ul class="tsd-signatures tsd-is-private">
-<li class="tsd-signature tsd-anchor-link" id="resolveSelfDependencies.resolveSelfDependencies-1"><span class="tsd-kind-call-signature">resolve<wbr/>Self<wbr/>Dependencies</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span><a href="#resolveSelfDependencies.resolveSelfDependencies-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
-<li class="tsd-description"><code class="tsd-tag ts-flagPrivate">Private</code> 
-<div class="tsd-comment tsd-typography"><p>Resolves the unready dependencies that are referring to themselves as dependency.
-Emits a <strong>SelfDependencyError</strong> in the error event and removes them when that is the case.</p>
-</div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/65e65cf/src/DependencyManager.ts#L334">src/DependencyManager.ts:334</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"><a id="setMaxListeners" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>set<wbr/>Max<wbr/>Listeners</span><a href="#setMaxListeners" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
@@ -1029,8 +1147,7 @@ modified for this specific <code>EventEmitter</code> instance. The value can be 
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="wire.wire-1"><span class="tsd-kind-call-signature">wire</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">search</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type tsd-kind-type-parameter">T</span><a href="#wire.wire-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>Returns one or multiple of the requested dependencies.
-Removes the problematic dependencies.</p>
+<div class="tsd-comment tsd-typography"><p>Returns one or multiple of the requested dependencies.</p>
 </div>
 <section class="tsd-panel">
 <h4>Type Parameters</h4>
@@ -1042,80 +1159,29 @@ Removes the problematic dependencies.</p>
 <ul class="tsd-parameter-list">
 <li>
 <h5><span class="tsd-kind-parameter">search</span>: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../types/BeanSearch.html" class="tsd-signature-type tsd-kind-type-alias">BeanSearch</a></h5>
-<div class="tsd-comment tsd-typography"><p>identifier or identifier, category and getFirst
-(whether we should get the first one in case of multiple corresponding dependencies).</p>
-</div>
 <div class="tsd-comment tsd-typography"></div></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type tsd-kind-type-parameter">T</span></h4>
 <div class="tsd-comment tsd-typography">
-<h4>Throws</h4><p>BeanNotFoundError if only one dependency is requested or emits it in the error event if the bean is not present.</p>
+<h4>Throws</h4><p>BeanNotReadyError</p>
 
-<h4>Throws</h4><p>MissingBeanInitializerError if only one dependency is requested or emits it in the error event if the bean is missing an initializer.</p>
+<h4>Throws</h4><p>BeanAlreadyInitializedError</p>
 
-<h4>Throws</h4><p>BeanNotReadyError if only one dependency is requested or emits it in the error event if the bean isn&#39;t ready.</p>
+<h4>Throws</h4><p>BeanInitializerNotInstantiableError</p>
 
-<h4>Throws</h4><p>BeanAlreadyInitialized if only one dependency is requested or emits it in the error event if the bean is already initialized.</p>
+<h4>Throws</h4><p>BeanInitializationError</p>
 
-<h4>Throws</h4><p>BeanInitializerNotInstantiable if only one dependency is requested or emits it in the error event if the bean initializer is neither a function nor a class.</p>
+<h4>Emits</h4><p>&#39;error&#39; BeanNotFoundError</p>
+
+<h4>Emits</h4><p>&#39;error&#39; BeanNotReadyError</p>
+
+<h4>Emits</h4><p>&#39;error&#39; BeanAlreadyInitializedError</p>
+
+<h4>Emits</h4><p>&#39;error&#39; BeanInitializerNotInstantiableError</p>
+
+<h4>Emits</h4><p>&#39;error&#39; BeanInitializationError</p>
 </div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/65e65cf/src/DependencyManager.ts#L242">src/DependencyManager.ts:242</a></li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member tsd-is-private"><a id="wireMultipleBeans" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>wire<wbr/>Multiple<wbr/>Beans</span><a href="#wireMultipleBeans" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<ul class="tsd-signatures tsd-is-private">
-<li class="tsd-signature tsd-anchor-link" id="wireMultipleBeans.wireMultipleBeans-1"><span class="tsd-kind-call-signature">wire<wbr/>Multiple<wbr/>Beans</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">beanSearch</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">default</span><span class="tsd-signature-symbol">[]</span><a href="#wireMultipleBeans.wireMultipleBeans-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
-<li class="tsd-description"><code class="tsd-tag ts-flagPrivate">Private</code> 
-<div class="tsd-comment tsd-typography"><p>Returns the requested dependencies.
-Removes the problematic dependencies.
-Emits a <strong>BeanNotFoundError</strong> in the error event if the bean is not present.
-Emits a <strong>MissingBeanInitializerError</strong> in the error event if the bean is missing an initializer.
-Emits a <strong>BeanNotReadyError</strong> in the error event if the bean isn&#39;t ready.
-Emits a <strong>BeanAlreadyInitialized</strong> in the error event if the bean is already initialized.
-Emits a <strong>BeanInitializerNotInstantiable</strong> in the error event if the bean initializer is neither a function nor a class.</p>
-</div>
-<div class="tsd-parameters">
-<h4 class="tsd-parameters-title">Parameters</h4>
-<ul class="tsd-parameter-list">
-<li>
-<h5><span class="tsd-kind-parameter">beanSearch</span>: <a href="../types/BeanSearch.html" class="tsd-signature-type tsd-kind-type-alias">BeanSearch</a></h5>
-<div class="tsd-comment tsd-typography"><p>identifier, category and getFirst.</p>
-</div>
-<div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">default</span><span class="tsd-signature-symbol">[]</span></h4>
-<div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/65e65cf/src/DependencyManager.ts#L292">src/DependencyManager.ts:292</a></li></ul></aside></li></ul></section>
-<section class="tsd-panel tsd-member tsd-is-private"><a id="wireSingleBean" class="tsd-anchor"></a>
-<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>wire<wbr/>Single<wbr/>Bean</span><a href="#wireSingleBean" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
-<ul class="tsd-signatures tsd-is-private">
-<li class="tsd-signature tsd-anchor-link" id="wireSingleBean.wireSingleBean-1"><span class="tsd-kind-call-signature">wire<wbr/>Single<wbr/>Bean</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">beanSearch</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type ">default</span><a href="#wireSingleBean.wireSingleBean-1" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
-<li class="tsd-description"><code class="tsd-tag ts-flagPrivate">Private</code> 
-<div class="tsd-comment tsd-typography"><p>Returns one (the first in case of multiple) of the requested dependencies.
-Removes the problematic dependencies.</p>
-</div>
-<div class="tsd-parameters">
-<h4 class="tsd-parameters-title">Parameters</h4>
-<ul class="tsd-parameter-list">
-<li>
-<h5><span class="tsd-kind-parameter">beanSearch</span>: <a href="../types/BeanSearch.html" class="tsd-signature-type tsd-kind-type-alias">BeanSearch</a></h5>
-<div class="tsd-comment tsd-typography"><p>identifier, category and getFirst
-(whether we should get the first one in case of multiple corresponding dependencies).</p>
-</div>
-<div class="tsd-comment tsd-typography"></div></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">default</span></h4>
-<div class="tsd-comment tsd-typography">
-<h4>Throws</h4><p>BeanNotFoundError if the bean is not present.</p>
-
-<h4>Throws</h4><p>MissingBeanInitializerError if the bean is missing an initializer.</p>
-
-<h4>Throws</h4><p>BeanNotReadyError if the bean isn&#39;t ready.</p>
-
-<h4>Throws</h4><p>BeanAlreadyInitialized if the bean is already initialized.</p>
-
-<h4>Throws</h4><p>BeanInitializerNotInstantiable if the bean initializer is neither a function nor a class.</p>
-</div><aside class="tsd-sources">
-<ul>
-<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/65e65cf/src/DependencyManager.ts#L266">src/DependencyManager.ts:266</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/leopoldhub/wire-dependency-injection/blob/58a6b0c/src/DependencyManager.ts#L173">src/DependencyManager.ts:173</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-inherited tsd-is-external"><a id="getEventListeners" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagStatic">Static</code> <span>get<wbr/>Event<wbr/>Listeners</span><a href="#getEventListeners" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-inherited tsd-is-external">
@@ -1313,25 +1379,35 @@ special handling:</p>
 <li><a href="#captureRejections" class="tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>capture<wbr/>Rejections</span></a></li>
 <li><a href="#defaultMaxListeners" class="tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>default<wbr/>Max<wbr/>Listeners</span></a></li>
 <li><a href="#errorMonitor" class="tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>error<wbr/>Monitor</span></a></li>
+<li><a href="#_canBeanBeInitialized" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_can<wbr/>Bean<wbr/>Be<wbr/>Initialized</span></a></li>
+<li><a href="#_filterUniqueInterdependencyPaths" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_filter<wbr/>Unique<wbr/>Interdependency<wbr/>Paths</span></a></li>
+<li><a href="#_getBean" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_get<wbr/>Bean</span></a></li>
+<li><a href="#_getBeanIndex" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_get<wbr/>Bean<wbr/>Index</span></a></li>
+<li><a href="#_getBeanInterdependencyPaths" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_get<wbr/>Bean<wbr/>Interdependency<wbr/>Paths</span></a></li>
+<li><a href="#_getBeans" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_get<wbr/>Beans</span></a></li>
+<li><a href="#_getConnectorIndex" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_get<wbr/>Connector<wbr/>Index</span></a></li>
+<li><a href="#_getReadyBean" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_get<wbr/>Ready<wbr/>Bean</span></a></li>
+<li><a href="#_getReadyBeans" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_get<wbr/>Ready<wbr/>Beans</span></a></li>
+<li><a href="#_getUnreadyBean" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_get<wbr/>Unready<wbr/>Bean</span></a></li>
+<li><a href="#_getUnreadyBeans" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_get<wbr/>Unready<wbr/>Beans</span></a></li>
+<li><a href="#_haveBean" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_have<wbr/>Bean</span></a></li>
+<li><a href="#_initializeBean" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_initialize<wbr/>Bean</span></a></li>
+<li><a href="#_registerBean" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_register<wbr/>Bean</span></a></li>
+<li><a href="#_removeBean" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_remove<wbr/>Bean</span></a></li>
+<li><a href="#_removeBeans" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_remove<wbr/>Beans</span></a></li>
+<li><a href="#_removeConnector" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_remove<wbr/>Connector</span></a></li>
+<li><a href="#_resolveBeanInterDependencies" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_resolve<wbr/>Bean<wbr/>Inter<wbr/>Dependencies</span></a></li>
+<li><a href="#_resolveBeans" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_resolve<wbr/>Beans</span></a></li>
+<li><a href="#_resolveConnectors" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_resolve<wbr/>Connectors</span></a></li>
+<li><a href="#_wire" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_wire</span></a></li>
+<li><a href="#_wireMultipleBeans" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_wire<wbr/>Multiple<wbr/>Beans</span></a></li>
+<li><a href="#_wireSingleBean" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>_wire<wbr/>Single<wbr/>Bean</span></a></li>
 <li><a href="#addListener" class="tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>add<wbr/>Listener</span></a></li>
-<li><a href="#areInterDependent" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>are<wbr/>Inter<wbr/>Dependent</span></a></li>
 <li><a href="#autoWire" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>auto<wbr/>Wire</span></a></li>
-<li><a href="#canBeanBeInitialized" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>can<wbr/>Bean<wbr/>Be<wbr/>Initialized</span></a></li>
 <li><a href="#declare" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>declare</span></a></li>
 <li><a href="#emit" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>emit</span></a></li>
 <li><a href="#eventNames" class="tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>event<wbr/>Names</span></a></li>
-<li><a href="#getBean" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Bean</span></a></li>
-<li><a href="#getBeanIndex" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Bean<wbr/>Index</span></a></li>
-<li><a href="#getBeans" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Beans</span></a></li>
-<li><a href="#getConnectorIndex" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Connector<wbr/>Index</span></a></li>
-<li><a href="#getInterDependentCouples" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Inter<wbr/>Dependent<wbr/>Couples</span></a></li>
 <li><a href="#getMaxListeners" class="tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Max<wbr/>Listeners</span></a></li>
-<li><a href="#getReadyBean" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Ready<wbr/>Bean</span></a></li>
-<li><a href="#getReadyBeans" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Ready<wbr/>Beans</span></a></li>
-<li><a href="#getUnreadyBean" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Unready<wbr/>Bean</span></a></li>
-<li><a href="#getUnreadyBeans" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Unready<wbr/>Beans</span></a></li>
-<li><a href="#haveBean" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>have<wbr/>Bean</span></a></li>
-<li><a href="#initializeBean" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>initialize<wbr/>Bean</span></a></li>
 <li><a href="#instance" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>instance</span></a></li>
 <li><a href="#listenerCount" class="tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>listener<wbr/>Count</span></a></li>
 <li><a href="#listeners" class="tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>listeners</span></a></li>
@@ -1341,20 +1417,11 @@ special handling:</p>
 <li><a href="#prependListener" class="tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>prepend<wbr/>Listener</span></a></li>
 <li><a href="#prependOnceListener" class="tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>prepend<wbr/>Once<wbr/>Listener</span></a></li>
 <li><a href="#rawListeners" class="tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>raw<wbr/>Listeners</span></a></li>
-<li><a href="#registerBean" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>register<wbr/>Bean</span></a></li>
 <li><a href="#removeAllListeners" class="tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>remove<wbr/>All<wbr/>Listeners</span></a></li>
-<li><a href="#removeBean" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>remove<wbr/>Bean</span></a></li>
-<li><a href="#removeBeans" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>remove<wbr/>Beans</span></a></li>
-<li><a href="#removeConnector" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>remove<wbr/>Connector</span></a></li>
+<li><a href="#removeDefaultErrorHandler" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>remove<wbr/>Default<wbr/>Error<wbr/>Handler</span></a></li>
 <li><a href="#removeListener" class="tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>remove<wbr/>Listener</span></a></li>
-<li><a href="#resolveBeans" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>resolve<wbr/>Beans</span></a></li>
-<li><a href="#resolveConnectors" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>resolve<wbr/>Connectors</span></a></li>
-<li><a href="#resolveInterDependencies" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>resolve<wbr/>Inter<wbr/>Dependencies</span></a></li>
-<li><a href="#resolveSelfDependencies" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>resolve<wbr/>Self<wbr/>Dependencies</span></a></li>
 <li><a href="#setMaxListeners" class="tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>set<wbr/>Max<wbr/>Listeners</span></a></li>
 <li><a href="#wire" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>wire</span></a></li>
-<li><a href="#wireMultipleBeans" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>wire<wbr/>Multiple<wbr/>Beans</span></a></li>
-<li><a href="#wireSingleBean" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>wire<wbr/>Single<wbr/>Bean</span></a></li>
 <li><a href="#getEventListeners" class="tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>get<wbr/>Event<wbr/>Listeners</span></a></li>
 <li><a href="#listenerCount-2" class="tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>listener<wbr/>Count</span></a></li>
 <li><a href="#on-2" class="tsd-is-inherited tsd-is-external"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>on</span></a></li>

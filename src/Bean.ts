@@ -9,9 +9,10 @@ import {
   ClassType,
 } from './types.js';
 import { isClass } from './utils.js';
-import BeanInitializerNotInstantiable from './error/bean/BeanInitializerNotInstantiable.js';
-import BeanAlreadyInitialized from './error/bean/BeanAlreadyInitialized.js';
+import BeanInitializerNotInstantiableError from './error/bean/BeanInitializerNotInstantiableError.js';
+import BeanAlreadyInitializedError from './error/bean/BeanAlreadyInitializedError.js';
 import { NO_INSTANCE } from './beanBehaviours.js';
+import BeanInitializationError from './error/bean/BeanInitializationError.js';
 
 /**
  * A bean is an object that contains all the information about
@@ -47,23 +48,28 @@ export default class Bean {
 
   /**
    * Initializes and declare the value.
-   * @throws BeanAlreadyInitialized if already initialized.
-   * @throws BeanInitializerNotInstantiable if the initializer is neither a function nor a class.
+   * @throws BeanAlreadyInitializedError
+   * @throws BeanInitializerNotInstantiableError
+   * @throws BeanInitializationError
    * @param wireValues parameters for initialization.
    */
   public initialize(...wireValues: Array<BeanValue>) {
     if (this._ready) {
-      throw new BeanAlreadyInitialized(this);
+      throw new BeanAlreadyInitializedError(this);
     }
     if (this._initializer === undefined) {
-      throw new BeanInitializerNotInstantiable(this);
+      throw new BeanInitializerNotInstantiableError(this);
     }
-    if (isClass(this._initializer as Function)) {
-      this._value = new (this._initializer as unknown as ClassType)(
-        ...wireValues
-      );
-    } else {
-      this._value = (this._initializer as Function)(wireValues);
+    try {
+      if (isClass(this._initializer as Function)) {
+        this._value = new (this._initializer as unknown as ClassType)(
+          ...wireValues
+        );
+      } else {
+        this._value = (this._initializer as Function)(wireValues);
+      }
+    } catch (e) {
+      throw new BeanInitializationError(this, { cause: e });
     }
     this._ready = true;
   }

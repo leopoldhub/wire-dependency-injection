@@ -6,14 +6,15 @@ import { BEAN } from './beanCategories.js';
 export type ClassType = new (...args: any) => any;
 
 /**
- * Behaviours who allows instancing
+ * A behaviour indicates how a bean should act when resolving and instancing.
+ * Behaviours who allows instancing.
  */
 export type InstanceBeanBehaviour =
   | typeof CAUTIOUS
   | typeof EAGER
   | typeof LAZY;
 /**
- * A behaviour indicates how a bean should act when resolving and instancing
+ * A behaviour indicates how a bean should act when resolving and instancing.
  */
 export type BeanBehaviour = typeof NO_INSTANCE | InstanceBeanBehaviour;
 
