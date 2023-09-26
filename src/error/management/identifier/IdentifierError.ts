@@ -1,5 +1,5 @@
-import { BeanIdentifier } from '../../../types.js';
-import ManagementError from '../ManagementError.js';
+import { BeanIdentifier } from '../../../types';
+import ManagementError from '../ManagementError';
 
 export default class IdentifierError extends ManagementError {
   public constructor(

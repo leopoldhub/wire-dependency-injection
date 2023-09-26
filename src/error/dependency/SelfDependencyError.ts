@@ -1,5 +1,5 @@
-import Bean from '../../Bean.js';
-import DependencyError from './DependencyError.js';
+import Bean from '../../Bean';
+import DependencyError from './DependencyError';
 
 export default class SelfDependencyError extends DependencyError {
   public constructor(

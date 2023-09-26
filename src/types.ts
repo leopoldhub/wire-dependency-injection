@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import { CAUTIOUS, EAGER, LAZY, NO_INSTANCE } from './beanBehaviours.js';
-import { BEAN } from './beanCategories.js';
+import { CAUTIOUS, EAGER, LAZY, NO_INSTANCE } from './beanBehaviours';
+import { BEAN } from './beanCategories';
 
 // eslint-disable-next-line
 export type ClassType = new (...args: any) => any;

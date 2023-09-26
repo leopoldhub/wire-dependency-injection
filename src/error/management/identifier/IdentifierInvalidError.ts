@@ -1,5 +1,5 @@
-import IdentifierError from './IdentifierError.js';
-import { BeanIdentifier } from '../../../types.js';
+import IdentifierError from './IdentifierError';
+import { BeanIdentifier } from '../../../types';
 
 export default class IdentifierInvalidError extends IdentifierError {
   public constructor(identifier?: BeanIdentifier, options?: ErrorOptions) {

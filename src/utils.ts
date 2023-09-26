@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment, @typescript-eslint/ban-types*/
-import { BeanIdentifier, BeanSearch } from './types.js';
+import { BeanIdentifier, BeanSearch } from './types';
 
 export function isClass(obj: Function) {
   return (
     obj?.constructor?.toString?.()?.startsWith('class ') ||
-    obj.prototype.constructor?.toString?.()?.startsWith('class ')
+    obj?.prototype?.constructor?.toString?.()?.startsWith('class ')
   );
 }
 

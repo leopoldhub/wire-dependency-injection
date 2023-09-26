@@ -1,3 +1,3 @@
-import DependencyInjectionError from '../DependencyInjectionError.js';
+import DependencyInjectionError from '../DependencyInjectionError';
 
 export default class ManagementError extends DependencyInjectionError {}

@@ -1,5 +1,5 @@
-import DependencyInjectionError from '../DependencyInjectionError.js';
-import Bean from '../../Bean.js';
+import DependencyInjectionError from '../DependencyInjectionError';
+import Bean from '../../Bean';
 
 export default class BeanError extends DependencyInjectionError {
   public constructor(

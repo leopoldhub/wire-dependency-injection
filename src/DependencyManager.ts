@@ -1,7 +1,7 @@
 import EventEmitter from 'events';
-import Bean from './Bean.js';
-import IdentifierAlreadyExistsError from './error/management/identifier/IdentifierAlreadyExistsError.js';
-import { CAUTIOUS, EAGER, LAZY, NO_INSTANCE } from './beanBehaviours.js';
+import Bean from './Bean';
+import IdentifierAlreadyExistsError from './error/management/identifier/IdentifierAlreadyExistsError';
+import { CAUTIOUS, EAGER, LAZY, NO_INSTANCE } from './beanBehaviours';
 import {
   BeanCategory,
   BeanIdentifier,
@@ -12,16 +12,16 @@ import {
   ConnectorCallback,
   Couple,
   InstanceParameters,
-} from './types.js';
-import BeanMissingInitializerError from './error/bean/BeanMissingInitializerError.js';
-import BeanNotFoundError from './error/management/BeanNotFoundError.js';
-import BeanNotReadyError from './error/bean/BeanNotReadyError.js';
-import InterDependencyError from './error/dependency/InterDependencyError.js';
-import DependencyInjectionError from './error/DependencyInjectionError.js';
-import SelfDependencyError from './error/dependency/SelfDependencyError.js';
-import { arrayIncludesArrayAsChild, extractBeanSearch } from './utils.js';
-import { BEAN } from './beanCategories.js';
-import ConnectorCallbackError from './error/connector/ConnectorCallbackError.js';
+} from './types';
+import BeanMissingInitializerError from './error/bean/BeanMissingInitializerError';
+import BeanNotFoundError from './error/management/BeanNotFoundError';
+import BeanNotReadyError from './error/bean/BeanNotReadyError';
+import InterDependencyError from './error/dependency/InterDependencyError';
+import DependencyInjectionError from './error/DependencyInjectionError';
+import SelfDependencyError from './error/dependency/SelfDependencyError';
+import { arrayIncludesArrayAsChild, extractBeanSearch } from './utils';
+import { BEAN } from './beanCategories';
+import ConnectorCallbackError from './error/connector/ConnectorCallbackError';
 
 export const ErrorEventId = 'error';
 

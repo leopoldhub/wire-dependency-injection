@@ -7,12 +7,12 @@ import {
   BeanOptions,
   BeanValue,
   ClassType,
-} from './types.js';
-import { isClass } from './utils.js';
-import BeanInitializerNotInstantiableError from './error/bean/BeanInitializerNotInstantiableError.js';
-import BeanAlreadyInitializedError from './error/bean/BeanAlreadyInitializedError.js';
-import { NO_INSTANCE } from './beanBehaviours.js';
-import BeanInitializationError from './error/bean/BeanInitializationError.js';
+} from './types';
+import { isClass } from './utils';
+import BeanInitializerNotInstantiableError from './error/bean/BeanInitializerNotInstantiableError';
+import BeanAlreadyInitializedError from './error/bean/BeanAlreadyInitializedError';
+import { NO_INSTANCE } from './beanBehaviours';
+import BeanInitializationError from './error/bean/BeanInitializationError';
 
 /**
  * A bean is an object that contains all the information about

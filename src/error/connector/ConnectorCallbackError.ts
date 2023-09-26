@@ -1,5 +1,5 @@
-import ConnectorError from './ConnectorError.js';
-import { Connector } from '../../types.js';
+import ConnectorError from './ConnectorError';
+import { Connector } from '../../types';
 
 /**
  * aaaaaaaa A aa

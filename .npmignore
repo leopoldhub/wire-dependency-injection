@@ -4,7 +4,7 @@
 #local
 node_modules/
 dist/
-logs/
+coverage/
 *.tgz
 #secrets
 *.env
