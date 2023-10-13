@@ -19,12 +19,12 @@ import BeanInitializationError from './error/bean/BeanInitializationError.js';
  * a dependency and is managed by the DependencyManager.
  */
 export default class Bean {
-  private readonly _identifier: BeanIdentifier;
-  private readonly _category: BeanCategory;
-  private readonly _initializer?: BeanInitializer;
-  private _value?: BeanValue;
-  private readonly _options: BeanOptions;
-  private _ready: boolean;
+  protected readonly _identifier: BeanIdentifier;
+  protected readonly _category: BeanCategory;
+  protected readonly _initializer?: BeanInitializer;
+  protected _value?: BeanValue;
+  protected readonly _options: BeanOptions;
+  protected _ready: boolean;
 
   /**
    * @param identifier unique dependency identifier.

@@ -1,5 +1,4 @@
 import { BeanCategory, BeanIdentifier } from '../../types.js';
-import DependencyInjectionError from '../DependencyInjectionError.js';
 import ManagementError from './ManagementError.js';
 
 export default class BeanNotFoundError extends ManagementError {

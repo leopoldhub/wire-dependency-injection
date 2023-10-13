@@ -4,7 +4,7 @@ import { BeanIdentifier, BeanSearch } from './types.js';
 export function isClass(obj: Function) {
   return (
     obj?.constructor?.toString?.()?.startsWith('class ') ||
-    obj.prototype.constructor?.toString?.()?.startsWith('class ')
+    obj?.prototype?.constructor?.toString?.()?.startsWith('class ')
   );
 }
 

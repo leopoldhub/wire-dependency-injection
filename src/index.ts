@@ -6,6 +6,7 @@ export * from './DependencyManager.js';
 export * from './Bean.js';
 export * as beanBehaviours from './beanBehaviours.js';
 export * from './beanBehaviours.js';
+export * as beanCategories from './beanCategories.js';
 export * from './beanCategories.js';
 
 export * from './error/DependencyInjectionError.js';

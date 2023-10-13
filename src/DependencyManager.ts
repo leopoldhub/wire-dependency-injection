@@ -31,8 +31,8 @@ export const DEFAULT_ERROR_HANDLER = console.error;
  * A DependencyManager controls, registers, wires and distributes dependencies.
  */
 export class DependencyManager extends EventEmitter {
-  private readonly _beans: Array<Bean> = [];
-  private readonly _connectors: Array<Connector> = [];
+  protected readonly _beans: Array<Bean> = [];
+  protected readonly _connectors: Array<Connector> = [];
 
   public constructor() {
     super({ captureRejections: true });
@@ -49,7 +49,7 @@ export class DependencyManager extends EventEmitter {
    * @param bean
    * @private
    */
-  private _registerBean(bean: Bean) {
+  protected _registerBean(bean: Bean) {
     if (this._haveBean({ identifier: bean.identifier })) {
       throw new IdentifierAlreadyExistsError(bean.identifier);
     }
@@ -113,7 +113,7 @@ export class DependencyManager extends EventEmitter {
   }
 
   // ===== Bean Initialization =====
-  private _canBeanBeInitialized(bean: Bean): boolean {
+  protected _canBeanBeInitialized(bean: Bean): boolean {
     if (bean.isReady()) {
       return false;
     }
@@ -146,7 +146,7 @@ export class DependencyManager extends EventEmitter {
    * @param parents
    * @private
    */
-  private _initializeBean(bean: Bean, parents: Array<Bean> = []) {
+  protected _initializeBean(bean: Bean, parents: Array<Bean> = []) {
     if (!this._canBeanBeInitialized(bean)) {
       throw new BeanNotReadyError(bean);
     }
@@ -193,7 +193,7 @@ export class DependencyManager extends EventEmitter {
    * @param parents
    * @private
    */
-  private _wire<T = any>(
+  protected _wire<T = any>(
     search: BeanIdentifier | BeanSearch,
     parents: Array<Bean> = []
   ): T {
@@ -220,7 +220,7 @@ export class DependencyManager extends EventEmitter {
    * @param parents
    * @private
    */
-  private _wireSingleBean(beanSearch: BeanSearch, parents: Array<Bean> = []) {
+  protected _wireSingleBean(beanSearch: BeanSearch, parents: Array<Bean> = []) {
     const bean = this._getBean(beanSearch);
     if (!bean) {
       throw new BeanNotFoundError(beanSearch.identifier, beanSearch.category);
@@ -245,7 +245,7 @@ export class DependencyManager extends EventEmitter {
    * @param parents
    * @private
    */
-  private _wireMultipleBeans(
+  protected _wireMultipleBeans(
     beanSearch: BeanSearch,
     parents: Array<Bean> = []
   ) {
@@ -301,7 +301,7 @@ export class DependencyManager extends EventEmitter {
    * @param bean
    * @private
    */
-  private _resolveBeanInterDependencies(bean: Bean) {
+  protected _resolveBeanInterDependencies(bean: Bean) {
     this._getBeanInterdependencyPaths(bean).forEach((path) => {
       this._removeBean(bean);
       if (path.length === 1) {
@@ -317,7 +317,7 @@ export class DependencyManager extends EventEmitter {
    * @param interdependencyPaths
    * @private
    */
-  private _filterUniqueInterdependencyPaths(
+  protected _filterUniqueInterdependencyPaths(
     interdependencyPaths: Array<Array<Bean>>
   ) {
     const existingPathsBoundaries: Array<Couple<Bean>> = [];
@@ -337,12 +337,19 @@ export class DependencyManager extends EventEmitter {
     return uniqueArray;
   }
 
-  private _getBeanInterdependencyPaths(
+  protected _getBeanInterdependencyPaths(
     bean: Bean,
-    parentBeans: Array<Bean> = []
+    parentBeans: Array<Bean> = [],
+    isInGroup?: boolean
   ): Array<Array<Bean>> {
     const indexBeanInParents = parentBeans.indexOf(bean);
     if (indexBeanInParents >= 0) {
+      if (
+        isInGroup &&
+        parentBeans[indexBeanInParents].category === bean.category
+      ) {
+        return [];
+      }
       return [parentBeans];
     }
     if (bean.isReady()) {
@@ -350,15 +357,19 @@ export class DependencyManager extends EventEmitter {
     }
     const paths = (bean.options.wiring ?? [])
       .map((w) => extractBeanSearch(w))
-      .map((w) =>
-        (w.identifier ? [this._getBean(w)] : this._getBeans(w.category))
+      .map((w) => {
+        if (w.identifier) {
+          return [this._getBean(w)];
+        }
+        isInGroup = true;
+        return this._getBeans(w.category)
           .filter((b) => b !== bean)
-          .filter((b) => !parentBeans.includes(b as Bean))
-      )
+          .filter((b) => !parentBeans.includes(b));
+      })
       .flatMap((b) => b as unknown as Bean)
       .filter((b) => b !== undefined)
       .flatMap((b: Bean) =>
-        this._getBeanInterdependencyPaths(b, [...parentBeans, bean])
+        this._getBeanInterdependencyPaths(b, [...parentBeans, bean], isInGroup)
       );
     return this._filterUniqueInterdependencyPaths(paths);
   }
@@ -372,7 +383,7 @@ export class DependencyManager extends EventEmitter {
    * @emits 'error' BeanInitializationError
    * @private
    */
-  private _resolveBeans() {
+  protected _resolveBeans() {
     const unReadyBeans = this._getUnreadyBeans();
     const beansToInitialize = unReadyBeans.filter((b) =>
       [EAGER, CAUTIOUS].includes(b.options.behaviour)
@@ -401,7 +412,7 @@ export class DependencyManager extends EventEmitter {
    * @emits 'error' ConnectorCallbackError
    * @private
    */
-  private _resolveConnectors() {
+  protected _resolveConnectors() {
     this._connectors.forEach((connector) => {
       const bean = this._getBean(connector);
       if (!bean) {
@@ -463,61 +474,61 @@ export class DependencyManager extends EventEmitter {
   }
 
   // ===== Bean Management =====
-  private _getReadyBeans(category?: BeanCategory) {
+  protected _getReadyBeans(category?: BeanCategory) {
     return this._beans.filter(
       (b) => b.isReady() && (!category || b.category === category)
     );
   }
 
-  private _getReadyBean(search: BeanSearch) {
+  protected _getReadyBean(search: BeanSearch) {
     return this._getReadyBeans(search.category).find(
       (b) => !search.identifier || b.identifier === search.identifier
     );
   }
 
-  private _getUnreadyBeans(category?: BeanCategory) {
+  protected _getUnreadyBeans(category?: BeanCategory) {
     return this._beans.filter(
       (b) => !b.isReady() && (!category || b.category === category)
     );
   }
 
-  private _getUnreadyBean(search: BeanSearch) {
+  protected _getUnreadyBean(search: BeanSearch) {
     return this._getUnreadyBeans(search.category).find(
       (b) => !search.identifier || b.identifier === search.identifier
     );
   }
 
-  private _getBeans(category?: BeanCategory) {
+  protected _getBeans(category?: BeanCategory) {
     return this._beans.filter((b) => !category || b.category === category);
   }
 
-  private _getBean(search: BeanSearch) {
+  protected _getBean(search: BeanSearch) {
     return this._getBeans(search.category).find(
       (bean) => !search.identifier || bean.identifier === search.identifier
     );
   }
 
-  private _haveBean(search: BeanSearch) {
+  protected _haveBean(search: BeanSearch) {
     return !!this._getBean(search);
   }
 
-  private _getBeanIndex(bean: Bean) {
+  protected _getBeanIndex(bean: Bean) {
     return this._beans.indexOf(bean);
   }
 
-  private _removeBeans(beans: Array<Bean>) {
+  protected _removeBeans(beans: Array<Bean>) {
     beans.forEach((bean) => this._removeBean(bean));
   }
 
-  private _removeBean(bean: Bean) {
+  protected _removeBean(bean: Bean) {
     this._beans.splice(this._getBeanIndex(bean), 1);
   }
 
-  private _getConnectorIndex(connector: Connector) {
+  protected _getConnectorIndex(connector: Connector) {
     return this._connectors.indexOf(connector);
   }
 
-  private _removeConnector(connector: Connector) {
+  protected _removeConnector(connector: Connector) {
     this._connectors.splice(this._getConnectorIndex(connector), 1);
   }
 }
