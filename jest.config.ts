@@ -15,6 +15,9 @@ const config: Config = {
   transform: {
     '^.+\\.(ts|tsx)$': 'ts-jest',
   },
+  moduleNameMapper: {
+    '(.+)\\.js$': '$1',
+  },
 };
 
 export default config;

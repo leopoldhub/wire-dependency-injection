@@ -1,8 +1,13 @@
-import Bean from '../../src/Bean';
-import { BEAN, BeanInitializer, CAUTIOUS, NO_INSTANCE } from '../../src';
-import BeanAlreadyInitializedError from '../../src/error/bean/BeanAlreadyInitializedError';
-import BeanInitializerNotInstantiableError from '../../src/error/bean/BeanInitializerNotInstantiableError';
-import BeanInitializationError from '../../src/error/bean/BeanInitializationError';
+import Bean from '../../src/Bean.js';
+import {
+  BEAN,
+  BeanInitializer,
+  CAUTIOUS,
+  NO_INSTANCE,
+} from '../../src/index.js';
+import BeanAlreadyInitializedError from '../../src/error/bean/BeanAlreadyInitializedError.js';
+import BeanInitializerNotInstantiableError from '../../src/error/bean/BeanInitializerNotInstantiableError.js';
+import BeanInitializationError from '../../src/error/bean/BeanInitializationError.js';
 import fn = jest.fn;
 
 describe('Bean initialization', () => {

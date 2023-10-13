@@ -1,5 +1,5 @@
-import Bean from '../../Bean';
-import BeanError from './BeanError';
+import Bean from '../../Bean.js';
+import BeanError from './BeanError.js';
 
 export default class BeanInitializerNotInstantiableError extends BeanError {
   public constructor(bean: Bean, options?: ErrorOptions) {

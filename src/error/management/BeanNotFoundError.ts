@@ -1,5 +1,5 @@
-import { BeanCategory, BeanIdentifier } from '../../types';
-import ManagementError from './ManagementError';
+import { BeanCategory, BeanIdentifier } from '../../types.js';
+import ManagementError from './ManagementError.js';
 
 export default class BeanNotFoundError extends ManagementError {
   public constructor(

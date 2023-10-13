@@ -1,5 +1,5 @@
-import DependencyInjectionError from '../DependencyInjectionError';
-import { Connector } from '../../types';
+import DependencyInjectionError from '../DependencyInjectionError.js';
+import { Connector } from '../../types.js';
 
 export default class ConnectorError extends DependencyInjectionError {
   public constructor(

@@ -1,5 +1,5 @@
-import Bean from '../../Bean';
-import DependencyError from './DependencyError';
+import Bean from '../../Bean.js';
+import DependencyError from './DependencyError.js';
 
 export default class InterDependencyError extends DependencyError {
   public constructor(

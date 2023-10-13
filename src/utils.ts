@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment, @typescript-eslint/ban-types*/
-import { BeanIdentifier, BeanSearch } from './types';
+import { BeanIdentifier, BeanSearch } from './types.js';
 
 export function isClass(obj: Function) {
   return (

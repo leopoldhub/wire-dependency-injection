@@ -7,24 +7,24 @@ import {
   BeanOptions,
   BeanValue,
   ClassType,
-} from './types';
-import { isClass } from './utils';
-import BeanInitializerNotInstantiableError from './error/bean/BeanInitializerNotInstantiableError';
-import BeanAlreadyInitializedError from './error/bean/BeanAlreadyInitializedError';
-import { NO_INSTANCE } from './beanBehaviours';
-import BeanInitializationError from './error/bean/BeanInitializationError';
+} from './types.js';
+import { isClass } from './utils.js';
+import BeanInitializerNotInstantiableError from './error/bean/BeanInitializerNotInstantiableError.js';
+import BeanAlreadyInitializedError from './error/bean/BeanAlreadyInitializedError.js';
+import { NO_INSTANCE } from './beanBehaviours.js';
+import BeanInitializationError from './error/bean/BeanInitializationError.js';
 
 /**
  * A bean is an object that contains all the information about
  * a dependency and is managed by the DependencyManager.
  */
 export default class Bean {
-  private readonly _identifier: BeanIdentifier;
-  private readonly _category: BeanCategory;
-  private readonly _initializer?: BeanInitializer;
-  private _value?: BeanValue;
-  private readonly _options: BeanOptions;
-  private _ready: boolean;
+  protected readonly _identifier: BeanIdentifier;
+  protected readonly _category: BeanCategory;
+  protected readonly _initializer?: BeanInitializer;
+  protected _value?: BeanValue;
+  protected readonly _options: BeanOptions;
+  protected _ready: boolean;
 
   /**
    * @param identifier unique dependency identifier.
