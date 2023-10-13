@@ -23,7 +23,7 @@ import { arrayIncludesArrayAsChild, extractBeanSearch } from './utils.js';
 import { BEAN } from './beanCategories.js';
 import ConnectorCallbackError from './error/connector/ConnectorCallbackError.js';
 
-export const ErrorEventId = 'error.js';
+export const ErrorEventId = 'error';
 
 export const DEFAULT_ERROR_HANDLER = console.error;
 
