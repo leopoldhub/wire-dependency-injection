@@ -13,7 +13,7 @@ describe('Interdependencies of unready beans', () => {
 
   let simpleBeanCSelfDep!: Bean;
 
-  const CATEGORY1: BeanCategory = 'group1.js';
+  const CATEGORY1: BeanCategory = 'group1';
   let cat1BeanDDepCat1!: Bean;
   let cat1BeanEDepD!: Bean;
 
