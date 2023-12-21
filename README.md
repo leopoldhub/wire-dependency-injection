@@ -143,6 +143,11 @@ const firstDeclaredController: Controller = dependencyManager.wire({
   category: 'CONTROLLER',
   getFirst: true,
 });
+
+dependencyManager.asyncWire('save-service').then(()=>...);
+await dependencyManager.asyncWire({
+  category: 'CONTROLLER',
+}, 500);
 ```
 
 ### AutoWiring

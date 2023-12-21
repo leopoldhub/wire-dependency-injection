@@ -12,6 +12,7 @@ import {
   ConnectorCallback,
   Couple,
   InstanceParameters,
+  WireBeanSearch,
 } from './types.js';
 import BeanMissingInitializerError from './error/bean/BeanMissingInitializerError.js';
 import BeanNotFoundError from './error/management/BeanNotFoundError.js';
@@ -107,7 +108,7 @@ export class DependencyManager extends EventEmitter {
     const bean = new Bean(
       identifier,
       { initializer: initializer, category: options.category ?? BEAN },
-      { behaviour: options.behaviour ?? CAUTIOUS, wiring: options.wiring }
+      { behaviour: options?.behaviour ?? CAUTIOUS, wiring: options?.wiring }
     );
     this._registerBean(bean);
   }
@@ -119,7 +120,7 @@ export class DependencyManager extends EventEmitter {
     }
     const wires = (bean.options.wiring ?? [])
       ?.map((w) => extractBeanSearch(w))
-      .filter((w) => w.identifier)
+      .filter((w) => w.identifier !== undefined)
       .map((w) => this._getBean(extractBeanSearch(w)));
     return !wires?.some(
       (bean) =>
@@ -151,6 +152,7 @@ export class DependencyManager extends EventEmitter {
       throw new BeanNotReadyError(bean);
     }
     const wiresValues = (bean.options.wiring ?? [])
+      .filter((w) => !(w as WireBeanSearch)?.nonTransferable)
       ?.map((w) => extractBeanSearch(w))
       .map((w) => this._wire(w, [...parents, bean]));
     bean.initialize(...wiresValues);
@@ -198,7 +200,8 @@ export class DependencyManager extends EventEmitter {
     parents: Array<Bean> = []
   ): T {
     const searchOptions = extractBeanSearch(search);
-    const multiple = !searchOptions.identifier && !searchOptions.getFirst;
+    const multiple =
+      searchOptions.identifier === undefined && !searchOptions.getFirst;
     if (!multiple) {
       return this._wireSingleBean(searchOptions, parents).value as T;
     } else {
@@ -293,6 +296,45 @@ export class DependencyManager extends EventEmitter {
     return undefined as T;
   }
 
+  /**
+   * Returns asynchronously one or multiple of the requested dependencies when theses are ready.
+   * @emits 'error' BeanNotFoundError
+   * @emits 'error' BeanNotReadyError
+   * @emits 'error' BeanAlreadyInitializedError
+   * @emits 'error' BeanInitializerNotInstantiableError
+   * @emits 'error' BeanInitializationError
+   * @emits 'error' ConnectorCallbackError
+   * @param search
+   * @param timeout in ms
+   */
+  public async asyncWire<T = any>(
+    search: BeanIdentifier | BeanSearch,
+    timeout?: number
+  ): Promise<T> {
+    return new Promise((resolve, reject) => {
+      let finished = false;
+      const triggerFinish = () => {
+        if (finished) {
+          return false;
+        }
+        finished = true;
+        return true;
+      };
+      this.autoWire<T>(search, (value) => {
+        if (triggerFinish()) {
+          resolve(value);
+        }
+      });
+      if (timeout) {
+        setTimeout(() => {
+          if (triggerFinish()) {
+            reject();
+          }
+        }, timeout);
+      }
+    });
+  }
+
   // ===== Resolvers =====
   /**
    * Resolves the bean interdependencies.
@@ -328,7 +370,9 @@ export class DependencyManager extends EventEmitter {
           inderdependencyPath[0],
           inderdependencyPath.at(-1) as Bean,
         ] as Couple<Bean>
-      ).sort((a, b) => a.identifier.localeCompare(b.identifier));
+      ).sort((a, b) =>
+        String(a.identifier).localeCompare(String(b.identifier))
+      );
       if (!arrayIncludesArrayAsChild(existingPathsBoundaries, boundaries)) {
         existingPathsBoundaries.push(boundaries);
         uniqueArray.push(inderdependencyPath);
@@ -358,7 +402,7 @@ export class DependencyManager extends EventEmitter {
     const paths = (bean.options.wiring ?? [])
       .map((w) => extractBeanSearch(w))
       .map((w) => {
-        if (w.identifier) {
+        if (w.identifier !== undefined) {
           return [this._getBean(w)];
         }
         isInGroup = true;
@@ -482,7 +526,8 @@ export class DependencyManager extends EventEmitter {
 
   protected _getReadyBean(search: BeanSearch) {
     return this._getReadyBeans(search.category).find(
-      (b) => !search.identifier || b.identifier === search.identifier
+      (b) =>
+        search.identifier === undefined || b.identifier === search.identifier
     );
   }
 
@@ -494,7 +539,8 @@ export class DependencyManager extends EventEmitter {
 
   protected _getUnreadyBean(search: BeanSearch) {
     return this._getUnreadyBeans(search.category).find(
-      (b) => !search.identifier || b.identifier === search.identifier
+      (b) =>
+        search.identifier === undefined || b.identifier === search.identifier
     );
   }
 
@@ -504,7 +550,8 @@ export class DependencyManager extends EventEmitter {
 
   protected _getBean(search: BeanSearch) {
     return this._getBeans(search.category).find(
-      (bean) => !search.identifier || bean.identifier === search.identifier
+      (bean) =>
+        search.identifier === undefined || bean.identifier === search.identifier
     );
   }
 
