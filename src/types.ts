@@ -62,7 +62,9 @@ export type ConnectorCallback<T extends BeanValue = BeanValue> = (
   value: T
 ) => void;
 
-export type Wire = BeanIdentifier | BeanSearch;
+export type Wire = BeanIdentifier | WireBeanSearch;
+
+export type WireBeanSearch = BeanSearch & { nonTransferable?: boolean };
 
 export type BeanSearch = (
   | { identifier: BeanIdentifier; category: BeanCategory }
