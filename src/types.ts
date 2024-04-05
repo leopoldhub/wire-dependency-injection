@@ -56,6 +56,7 @@ export type InstanceParameters = {
 
 export type Connector = BeanSearch & {
   callback: ConnectorCallback;
+  resolved?: boolean;
 };
 
 export type ConnectorCallback<T extends BeanValue = BeanValue> = (

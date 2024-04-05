@@ -313,21 +313,16 @@ export class DependencyManager extends EventEmitter {
   ): Promise<T> {
     return new Promise((resolve, reject) => {
       let finished = false;
-      const triggerFinish = () => {
-        if (finished) {
-          return false;
-        }
-        finished = true;
-        return true;
-      };
       this.autoWire<T>(search, (value) => {
-        if (triggerFinish()) {
+        if (!finished) {
+          finished = true;
           resolve(value);
         }
       });
-      if (timeout) {
+      if (!finished && timeout) {
         setTimeout(() => {
-          if (triggerFinish()) {
+          if (!finished) {
+            finished = true;
             reject();
           }
         }, timeout);
@@ -457,7 +452,10 @@ export class DependencyManager extends EventEmitter {
    * @private
    */
   protected _resolveConnectors() {
-    this._connectors.forEach((connector) => {
+    [...this._connectors].forEach((connector) => {
+      if (connector.resolved) {
+        return;
+      }
       const bean = this._getBean(connector);
       if (!bean) {
         return;
@@ -481,6 +479,7 @@ export class DependencyManager extends EventEmitter {
           new ConnectorCallbackError(connector, { cause: e })
         );
       }
+      connector.resolved = true;
       this._removeConnector(connector);
     });
   }
@@ -519,7 +518,7 @@ export class DependencyManager extends EventEmitter {
 
   // ===== Bean Management =====
   protected _getReadyBeans(category?: BeanCategory) {
-    return this._beans.filter(
+    return [...this._beans].filter(
       (b) => b.isReady() && (!category || b.category === category)
     );
   }
@@ -532,7 +531,7 @@ export class DependencyManager extends EventEmitter {
   }
 
   protected _getUnreadyBeans(category?: BeanCategory) {
-    return this._beans.filter(
+    return [...this._beans].filter(
       (b) => !b.isReady() && (!category || b.category === category)
     );
   }
@@ -545,7 +544,7 @@ export class DependencyManager extends EventEmitter {
   }
 
   protected _getBeans(category?: BeanCategory) {
-    return this._beans.filter((b) => !category || b.category === category);
+    return [...this._beans].filter((b) => !category || b.category === category);
   }
 
   protected _getBean(search: BeanSearch) {
